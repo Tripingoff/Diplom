@@ -1,0 +1,47 @@
+﻿<Page x:Class="ИС_ККТД.Pages.Students"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1030"
+      Title="Студенты">
+    <Border BorderBrush="#5A06EC" BorderThickness="2" Background="White" CornerRadius="30">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="195*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="24"/>
+            </Grid.RowDefinitions>
+            <ListBox BorderThickness="0" x:Name="ListBoxStudents" Grid.Row="1" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#5A06EC" BorderThickness="1" CornerRadius="12">
+                            <StackPanel Orientation="Horizontal" Height="60">
+                                <Grid MinWidth="1000">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="380"/>
+                                        <ColumnDefinition Width="300"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Код_студента}" Height="34" Foreground="#5A06EC" FontSize="24" FontWeight="SemiBold" Grid.Column="0" Margin="10 2 2 2"/>
+                                    <StackPanel Orientation="Horizontal"  Grid.Column="1" >
+                                        <TextBlock Text="{Binding Фамилия}" Height="34" Foreground="#5A06EC" FontSize="24" FontWeight="SemiBold" Margin="2"/>
+                                        <TextBlock Text="{Binding Имя}" Height="34" Foreground="#5A06EC" FontSize="24" FontWeight="SemiBold" Margin="2"/>
+                                        <TextBlock Text="{Binding Отчество}" Height="34" Foreground="#5A06EC" FontSize="24" FontWeight="SemiBold" Margin="2"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Дата_рождения, StringFormat={}{0}}" Height="34" Foreground="#5A06EC" FontSize="24" FontWeight="SemiBold" Grid.Column="2"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border>
+</Page>

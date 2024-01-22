@@ -1,0 +1,103 @@
+﻿<Page x:Class="ИС_ККТД.Pages.StudentsAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1030"
+      Title="Студенты">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#5A06EC"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="White"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#4700C3"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#4700C3"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#370098"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#370098"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Border BorderBrush="#5A06EC" BorderThickness="2" Background="White" CornerRadius="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="1" x:Name="ListBoxStudent" BorderThickness="0" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#5A06EC" BorderThickness="1" CornerRadius="12">
+                            <Button x:Name="BtnEdit" Background="Transparent" BorderBrush="Transparent" Click="BtnEdit_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Код_студента}" Foreground="#5A06EC" Width="150" FontSize="20" Margin="10 0 0 0"/>
+                                    <StackPanel Orientation="Horizontal" MinWidth="350">
+                                        <TextBlock Text="{Binding Фамилия}" Foreground="#5A06EC" FontSize="20" Margin="2"/>
+                                        <TextBlock Text="{Binding Имя}" Foreground="#5A06EC" FontSize="20" Margin="2"/>
+                                        <TextBlock Text="{Binding Отчество}" Foreground="#5A06EC"  FontSize="20" Margin="2"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Группы.код_группы}"  Foreground="#5A06EC" FontSize="20" MinWidth="400"/>
+                                </StackPanel>
+                            </Button>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Orientation="Horizontal"  Grid.Row="2" HorizontalAlignment="Center">
+                <Button x:Name="BtnAdd" Content="Добавить" Width="200" Style="{DynamicResource ButtonStyle1}" Margin="10 2" Click="BtnAdd_Click"/>
+                <Button x:Name="BtnDelete" Content="Удалить" Width="200" Style="{DynamicResource ButtonStyle1}" Margin="10 2" Click="BtnDelete_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>
