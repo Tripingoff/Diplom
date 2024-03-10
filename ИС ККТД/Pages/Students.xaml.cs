@@ -27,7 +27,7 @@ namespace ИС_ККТД.Pages
         public Students()
         {
             InitializeComponent();
-            ListBoxStudents.ItemsSource = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.Id_группы == _currentGroup.Id_группы).ToList();
+                ListBoxStudents.ItemsSource = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.id_студента).ToList();
         }
 
     }

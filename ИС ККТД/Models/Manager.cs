@@ -13,6 +13,7 @@ namespace ИС_ККТД.Models
     {
         public static Frame PageNavigation { get; set; }
         public static Авторизация CurrentUser { get; set; }
+        public static Сотрудники StudentGroups { get; set; }
 
     }
 }

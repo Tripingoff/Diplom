@@ -12,7 +12,6 @@ namespace ИС_ККТД.Models
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
 
     public partial class Сотрудники
     {
@@ -40,6 +39,7 @@ namespace ИС_ККТД.Models
         public Nullable<int> Должность2 { get; set; }
         public string Почта { get; set; }
         public string Фото { get; set; }
+        public string Примечание { get; set; }
     
         public virtual Авторизация Авторизация { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -47,15 +47,5 @@ namespace ИС_ККТД.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ДисцпилинаПреподователь> ДисцпилинаПреподователь { get; set; }
         public virtual Должность Должность1 { get; set; }
-        public double CalculateAverageGrade(Студенты selectedStudent)
-        {
-            Manager.CurrentUser.Id_user = selectedStudent.id_user;
-
-            IS_KKTDEntities.GetContext().Итог_дисциплин.Where(p => p.Id_студента == selectedStudent.id_студента).ToList();
-            IS_KKTDEntities.GetContext().Пропуски.Where(p => p.Id_студента == selectedStudent.id_студента).ToList();
-            IS_KKTDEntities.GetContext().Успеваемость.Where(p => p.Id_студента == selectedStudent.id_студента).ToList();
-
-            return selectedStudent.id_студента;
-        }
     }
 }

@@ -12,7 +12,6 @@ namespace ИС_ККТД.Models
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
 
     public partial class Студенты
     {
@@ -23,7 +22,6 @@ namespace ИС_ККТД.Models
             this.Пропуски = new HashSet<Пропуски>();
             this.Успеваемость = new HashSet<Успеваемость>();
         }
-
         public string GetPhoto
         {
             get
@@ -62,15 +60,5 @@ namespace ИС_ККТД.Models
         public virtual ICollection<Пропуски> Пропуски { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Успеваемость> Успеваемость { get; set; }
-        public double CalculateAverageGrade(Студенты selectedStudent)
-        {
-            Manager.CurrentUser.Id_user = selectedStudent.id_user;
-
-            IS_KKTDEntities.GetContext().Итог_дисциплин.Where(p => p.Id_студента == selectedStudent.id_студента).ToList();
-            IS_KKTDEntities.GetContext().Пропуски.Where(p => p.Id_студента == selectedStudent.id_студента).ToList();
-            IS_KKTDEntities.GetContext().Успеваемость.Where(p => p.Id_студента == selectedStudent.id_студента).ToList();
-
-            return selectedStudent.id_студента;
-        }
     }
 }

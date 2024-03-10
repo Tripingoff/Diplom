@@ -28,7 +28,7 @@ namespace ИС_ККТД.Windows
             Window = this;
             list.ItemsSource = IS_KKTDEntities.GetContext().Сотрудники.Where(p => p.Id_user == Manager.CurrentUser.Id_user).ToList();
             PagesNavigation.Navigate(new Pages.Main());
-            Spmenu.DataContext = IS_KKTDEntities.GetContext().Сотрудники.Where(p => p.Id_user == Manager.CurrentUser.Id_user).ToList();
+            //Spmenu.DataContext = IS_KKTDEntities.GetContext().Сотрудники.Where(p => p.Id_user == Manager.CurrentUser.Id_user).ToList();
 
         }
         private void WindowClosed(object sender, EventArgs e)
@@ -74,11 +74,6 @@ namespace ИС_ККТД.Windows
             this.WindowState = WindowState.Minimized;
         }
 
-        private void Term_Click(object sender, RoutedEventArgs e)
-        {
-            PagesNavigation.NavigationService.Navigate(new Pages.Raspisanie());
-        }
-
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MainWindow admin = new MainWindow();
@@ -106,22 +101,25 @@ namespace ИС_ККТД.Windows
             return;
         }
 
-        private void btnMenu1_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+
+        private void Vedomost_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
-        private void TextBlock_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Deptors_Click(object sender, RoutedEventArgs e)
         {
-            //if (btnMenu1.)
-            //{
-            //    Spmenu.Visibility = Visibility.Collapsed;
-            //}
-            //else
-            //{
-            //    Spmenu.Visibility = Visibility.Visible;
-            //}
-            //return;
+            PagesNavigation.NavigationService.Navigate(new Pages.Deptors());
+        }
+
+        private void Studentiks_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.NavigationService.Navigate(new Pages.StudentZav());
+        }
+
+        private void Dopusks_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

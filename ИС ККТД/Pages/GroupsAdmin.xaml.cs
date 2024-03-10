@@ -41,5 +41,10 @@ namespace ИС_ККТД.Pages
         {
 
         }
+
+        private void TxtGroup_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

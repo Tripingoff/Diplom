@@ -102,6 +102,16 @@ namespace ИС_ККТД.Windows
             admin.Show();
         }
 
+        private void Portfolio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Raspisanie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             if (PagesNavigation.CanGoBack)

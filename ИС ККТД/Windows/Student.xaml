@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ИС_ККТД.Windows"
         mc:Ignorable="d"
-        Title="{Binding ElementName=PagesNavigation, Path=Content.Title}" MinHeight="768" MinWidth="1366" MaxHeight="1060" Background="Transparent" MaxWidth="1900" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+        Title="Главная" MinHeight="768" MinWidth="1366" MaxHeight="1060" Background="Transparent" MaxWidth="1900" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
     <Window.Resources>
         <SolidColorBrush x:Key="PrimaryBlueColor" Color="#5B7FFF"/>
         <SolidColorBrush x:Key="PrimaryGrayColor" Color="#707070"/>
@@ -30,9 +30,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            <Viewbox Height="5" Width="0" Margin="0 6 0 0" Stretch="UniformToFill">
+                            <Viewbox Height="25" Width="25" Margin="0 0 0 0" Stretch="UniformToFill">
                                 <Canvas Height="512" Width="512">
-                                    <Path x:Name="ico" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="{DynamicResource PrimaryGrayColor}" Margin="0 0 0 0"/>
+                                    <Path x:Name="ico1" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="White" Margin="0 50 0 0"/>
+                                    <Path x:Name="ico2" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="White" Margin="0 220 0 0"/>
+                                    <Path x:Name="ico3" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="WHite" Margin="0 400 0 0"/>
                                 </Canvas>
                             </Viewbox>
                         </Border>
@@ -53,7 +55,7 @@
         </Style>
         <Style x:Key="MenuRadioButtonStyle1" TargetType="{x:Type RadioButton}">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="15"/>
@@ -73,7 +75,7 @@
 
                                 <!-- Icon -->
                                 <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
-                                    <Image.Style>
+                                    <!--<Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Source" Value="/Icons/Семестр не акт.png"/>
                                             <Style.Triggers>
@@ -85,7 +87,7 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Image.Style>
+                                    </Image.Style>-->
                                 </Image>
 
 
@@ -114,7 +116,7 @@
         </Style>
         <Style x:Key="MenuRadioButtonStyle2" TargetType="{x:Type RadioButton}">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="15"/>
@@ -134,7 +136,7 @@
 
                                 <!-- Icon -->
                                 <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
-                                    <Image.Style>
+                                    <!--<Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Source" Value="/Icons/Дисциплина не акт.png"/>
                                             <Style.Triggers>
@@ -146,7 +148,7 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Image.Style>
+                                    </Image.Style>-->
                                 </Image>
 
 
@@ -175,7 +177,7 @@
         </Style>
         <Style x:Key="MenuRadioButtonStyle3" TargetType="{x:Type RadioButton}">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="15"/>
@@ -195,7 +197,7 @@
 
                                 <!-- Icon -->
                                 <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
-                                    <Image.Style>
+                                    <!--<Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Source" Value="/Icons/Итоги не акт.png"/>
                                             <Style.Triggers>
@@ -207,7 +209,7 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Image.Style>
+                                    </Image.Style>-->
                                 </Image>
 
 
@@ -236,7 +238,7 @@
         </Style>
         <Style x:Key="MenuRadioButtonStyle4" TargetType="{x:Type RadioButton}">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryGrayColor}"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="15"/>
@@ -256,7 +258,7 @@
 
                                 <!-- Icon -->
                                 <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
-                                    <Image.Style>
+                                    <!--<Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Source" Value="/Icons/Пропуски не акт.png"/>
                                             <Style.Triggers>
@@ -268,7 +270,7 @@
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Image.Style>
+                                    </Image.Style>-->
                                 </Image>
 
 
@@ -325,7 +327,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="7" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -333,14 +335,12 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="Background" TargetName="border" Value="#723ECB"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
-                                <Setter Property="Foreground" Value="#904A76"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="Background" TargetName="border" Value="#723ECB"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
-                                <Setter Property="Foreground" Value="#904A76"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
@@ -352,78 +352,224 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="50">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
-    <Grid MouseDown="Grid_MouseDown">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Border Background="#EBEBEB" Grid.RowSpan="2" CornerRadius="30" Grid.ColumnSpan="2">
 
-        </Border>
+    <Border Background="#F1F2F7" CornerRadius="30">
+        <Grid MouseDown="Grid_MouseDown">
 
-        <Border Background="#ffff" BorderBrush="#E4E4E4" BorderThickness="2 0 2 0" Grid.Row="0" Grid.Column="1" Margin="0,0,300,0">
-            <TextBlock Text="{Binding ElementName=PagesNavigation, Path=Content.Title}" FontSize="25" Foreground="#B2B2B2" VerticalAlignment="Center" Margin="30 0 0 0"/>
-        </Border>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/Лого-ККТД.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Height="49" Grid.Row="0" Grid.Column="0" Margin="15 15 15 0"/>
 
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="0,0,300,0">
-            <Button x:Name="BtnMinimaze" Width="28" Height="28" Margin="0 0 3 0" Click="BtnMinimaze_Click" Style="{DynamicResource Button}">
-                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="25" Height="25">
-                    <Image.Style>
-                        <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Icons/Кнопка свернуть не акт.png"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=BtnMinimaze}" Value="True">
-                                    <Setter Property="Source" Value="/Icons/Кнопка свернуть акт.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
-                                    <Setter Property="Source" Value="/Icons/Кнопка свернуть акт.png"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-            </Button>
-            <Button x:Name="BtnMaximaze" Width="28" Height="28" Margin="0 0 3 0" Click="BtnMaximaze_Click" Style="{DynamicResource Button}" >
-                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="25" Height="25">
-                    <Image.Style>
-                        <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Icons/Кнопка уменьшить 1 не акт.png"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=BtnMaximaze}" Value="True">
-                                    <Setter Property="Source" Value="/Icons/Кнопка уменьшить 1 акт.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
-                                    <Setter Property="Source" Value="/Icons/Кнопка уменьшить 1 акт.png"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-            </Button>
-            <Button x:Name="BtnClose" Width="28" Height="28" Margin="0 0 10 0" Click="BtnClose_Click" Style="{DynamicResource Button}">
-                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="25" Height="25">
-                    <Image.Style>
-                        <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Icons/Закрыть не акт.png"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=BtnClose}" Value="True">
-                                    <Setter Property="Source" Value="/Icons/Закрыть акт.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
-                                    <Setter Property="Source" Value="/Icons/Закрыть акт.png"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-            </Button>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 300 0">
+            <Border  CornerRadius="0 50 0 30" VerticalAlignment="Bottom" Grid.Row="1">
+                <Border CornerRadius="0 50 0 30" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="1,0">
+                            <GradientStop Color="#5A06EC" Offset="0.2"/>
+                            <GradientStop Color="#2D0376" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid x:Name="gridMenu" Width="250" Height="60">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="118"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Menu-->
+                        <!--<Border CornerRadius="0 50 0 30" Height="116" Width="250" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">-->
+
+                        <ToggleButton x:Name="btnMenu" Height="25" Width="25" HorizontalAlignment="Right" VerticalAlignment="Top" BorderThickness="0" Background="Transparent" Style="{StaticResource MenuIconStyle}" Cursor="Hand" Margin="0 20 30 0" Grid.Row="0">
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Height" BeginTime="0:0:0" From="720" To="60" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Height" BeginTime="0:0:0" From="60" To="720" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+
+                        <ListBox x:Name="list" Grid.Row="1" VerticalAlignment="Top"  Width="191" Height="98" BorderThickness="0" Background="Transparent" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0 20 0 0">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListBoxItem}">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel x:Name="StackPanelProfil" Orientation="Vertical" HorizontalAlignment="Center"  Grid.Row="1">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Фамилия}" Foreground="White" FontSize="20" Margin="2"/>
+                                            <TextBlock Text="{Binding Имя}"  Foreground="White" FontSize="20" Margin="2"/>
+                                        </StackPanel>
+                                        <TextBlock Text="Студент" HorizontalAlignment="Center" Foreground="White" FontSize="20"/>
+                                        <TextBlock x:Name="Studentik" Text="{Binding Группы.код_группы}" HorizontalAlignment="Center" FontSize="20" Foreground="White"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <StackPanel Grid.Row="2" Height="248" Margin="0 40 0 152">
+                            <RadioButton x:Name="Term" Content="Семестр" Style="{DynamicResource MenuRadioButtonStyle1}" Cursor="Hand" Margin="2 2 0 0" Click="Term_Click"/>
+                            <RadioButton x:Name="Disciplines" Content="Дисциплины" Style="{DynamicResource MenuRadioButtonStyle2}" Margin="2 2 0 0" Cursor="" Click="Disciplines_Click"/>
+                            <RadioButton x:Name="Results" Content="Итоги" Style="{DynamicResource MenuRadioButtonStyle3}" Cursor="Hand" Margin="2 2 0 0" Click="Results_Click"/>
+                            <RadioButton x:Name="Omissions" Content="Пропуски" Style="{DynamicResource MenuRadioButtonStyle4}" Margin="2 2 0 0" Cursor="Hand" Click="Omissions_Click"/>
+                            <RadioButton x:Name="Raspisanie" Content="Расписание" Style="{DynamicResource MenuRadioButtonStyle4}" Margin="2 2 0 0" Cursor="Hand" Click="Raspisanie_Click"/>
+                            <RadioButton x:Name="Portfolio" Content="Портфолио" Style="{DynamicResource MenuRadioButtonStyle4}" Margin="2 2 0 0" Cursor="Hand" Click="Portfolio_Click"/>
+                        </StackPanel>
+
+                        <Button Style="{DynamicResource Button}" Name="Exit" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135" Height="30" Click="Exit_Click">
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Height="20" Width="20" >
+                                    <!--<Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="/Icons/Выход не акт.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Exit}" Value="True">
+                                                        <Setter Property="Source" Value="/Icons/Выход акт.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                                        <Setter Property="Source" Value="/Icons/Выход акт.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>-->
+                                </Image>
+                                <TextBlock Text="Выход" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="BtnBack" Grid.Row="3" Width="30" Height="30" HorizontalAlignment="Right" Margin="0 0 30 0" Click="BtnBack_Click">
+                            <Image Height="30" Width="30"/>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Border>
+
+            <Frame Grid.Row="2" Grid.Column="2" Margin="25" x:Name="PagesNavigation" ContentRendered="PagesNavigation_ContentRendered" NavigationUIVisibility="Hidden"/>
+
+            <Grid x:Name="gridMenu1" Width="60" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" >
+                <Border CornerRadius="0 30 0 30" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
+                            <GradientStop Color="#5A06EC" Offset="0.3"/>
+                            <GradientStop Color="#2D0376" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="46"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Menu-->
+                        <ToggleButton x:Name="btnMenu1" Width="25" Height="25" HorizontalAlignment="Left"  BorderThickness="0" Background="Transparent" VerticalAlignment="Top" Style="{StaticResource MenuIconStyle}" Margin="15 7 15 7" Cursor="Hand" IsChecked="False">
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel1">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu1" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="195" To="60" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel1">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu1" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="195" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+
+                        <!--<StackPanel Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent"  Margin="0,0,300,0">-->
+                        <Button x:Name="BtnMinimaze" Width="30" Height="30" HorizontalAlignment="Left"  Background="Transparent" Grid.Column="1" Click="BtnMinimaze_Click" Style="{DynamicResource Button}" >
+                            <Image VerticalAlignment="Center" Source="/Icons/Свернуть.png" HorizontalAlignment="Right"  Width="20" Height="20"/>
+                        </Button>
+                            <Button x:Name="BtnMaximaze" Width="30" Height="30" HorizontalAlignment="Left" Background="Transparent" Grid.Column="2" Click="BtnMaximaze_Click" Style="{DynamicResource Button}">
+                            <Image VerticalAlignment="Center" Source="/Icons/Развернуть.png" HorizontalAlignment="Right"  Width="15" Height="15"/>
+                        </Button>
+                        <Button x:Name="BtnClose" Width="30" Height="30" HorizontalAlignment="Left"  Background="Transparent" Grid.Column="3" Click="BtnClose_Click" Style="{DynamicResource Button}" >
+                            <Image VerticalAlignment="Center" Source="/Icons/Закрыть.png" HorizontalAlignment="Right"  Width="15" Height="15"/>
+                        </Button>
+                        <!--</StackPanel>-->
+                        <!--<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 300 0">
             <Button x:Name="BtnBack" Foreground="#5A06EC" FontSize="20" Click="BtnBack_Click" Style="{DynamicResource Button}">
                 <Image VerticalAlignment="Center" Margin="0 0 13 0" HorizontalAlignment="Right"  Width="20" Height="20">
                     <Image.Style>
@@ -441,130 +587,11 @@
                     </Image.Style>
                 </Image>
             </Button>
-        </StackPanel>
+        </StackPanel>-->
 
-        <Border  CornerRadius="30 0 0 30" Grid.RowSpan="2" Background="#171616" >
-            <Border CornerRadius="30 0 0 30" Background="#FFFFFF">
-                <Grid x:Name="gridMenu" Width="60">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="200"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Logo -->
-                    <Image Grid.Row="1" Source="/Resources/Лого-ККТД.png" MinWidth="50" MinHeight="50" MaxWidth="200" MaxHeight="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5 0 0 0" />
-
-                    <!-- Menu -->
-                    <ToggleButton x:Name="btnMenu" Height="150" Width="60" HorizontalAlignment="Center" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Style="{StaticResource MenuIconStyle}" Cursor="Hand">
-                        <ToggleButton.Triggers>
-                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                <BeginStoryboard>
-                                    <Storyboard x:Name="HideStackPanel">
-                                        <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="260" To="60" Duration="0:0:0.3">
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                <BeginStoryboard>
-                                    <Storyboard x:Name="ShowStackPanel">
-                                        <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="260" Duration="0:0:0.3">
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ToggleButton.Triggers>
-                    </ToggleButton>
-
-                    <StackPanel Grid.Row="3">
-                        <RadioButton x:Name="Term" Content="Семестр" Style="{DynamicResource MenuRadioButtonStyle1}" Cursor="Hand" Margin="2 2 0 0" Click="Term_Click"/>
-                        <RadioButton x:Name="Disciplines" Content="Дисциплины" Style="{DynamicResource MenuRadioButtonStyle2}" Margin="2 2 0 0" Cursor="" Click="Disciplines_Click"/>
-                        <RadioButton x:Name="Results" Content="Итоги" Style="{DynamicResource MenuRadioButtonStyle3}" Cursor="Hand" Margin="2 2 0 0" Click="Results_Click"/>
-                        <RadioButton x:Name="Omissions" Content="Пропуски" Style="{DynamicResource MenuRadioButtonStyle4}" Margin="2 2 0 0" Cursor="Hand" Click="Omissions_Click"/>
-                    </StackPanel>
-
-                    <Button Style="{DynamicResource Button}" Name="Exit" Grid.Row="3" Margin="0 0 0 30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="135" Height="25" Click="Exit_Click">
-                        <StackPanel Orientation="Horizontal" >
-                            <Image Height="20" Width="20" >
-                                <Image.Style>
-                                    <Style TargetType="{x:Type Image}">
-                                        <Setter Property="Source" Value="/Icons/Выход не акт.png"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=Exit}" Value="True">
-                                                <Setter Property="Source" Value="/Icons/Выход акт.png"/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
-                                                <Setter Property="Source" Value="/Icons/Выход акт.png"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                            <TextBlock Text="Выход" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20"/>
-                        </StackPanel>
-                    </Button>
-                </Grid>
-            </Border>
-        </Border>
-
-        <Frame Grid.Row="2" Grid.Column="2" Margin="25" x:Name="PagesNavigation"  ContentRendered="PagesNavigation_ContentRendered" NavigationUIVisibility="Hidden"/>
-
-        <Grid x:Name="gridMenu1" Width="300" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" >
-            <Border CornerRadius="0 30 30 0" Background="#ffff">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Menu -->
-                    <ToggleButton x:Name="btnMenu1"  HorizontalAlignment="Left"  BorderThickness="0" Background="Transparent" VerticalAlignment="Top" Style="{StaticResource MenuIconStyle}" Margin="8 8 10 0" Cursor="Hand" IsChecked="False">
-                        <ToggleButton.Triggers>
-                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                <BeginStoryboard>
-                                    <Storyboard x:Name="HideStackPanel1">
-                                        <DoubleAnimation Storyboard.TargetName="gridMenu1" Storyboard.TargetProperty="Height" BeginTime="0:0:0" From="590" To="60" Duration="0:0:0.3">
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                <BeginStoryboard>
-                                    <Storyboard x:Name="ShowStackPanel1">
-                                        <DoubleAnimation Storyboard.TargetName="gridMenu1" Storyboard.TargetProperty="Height" BeginTime="0:0:0" From="60" To="590" Duration="0:0:0.3">
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ToggleButton.Triggers>
-                    </ToggleButton>
-                    <ListBox x:Name="list" Grid.Row="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListBoxItem}">
-                                <Setter Property="IsHitTestVisible" Value="False"/>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel x:Name="StackPanelProfil" Orientation="Vertical" HorizontalAlignment="Center"  Grid.Row="1">
-                                    <Image Name="ImageStudent" Source="{Binding GetPhoto}" Width="180" Height="180" Margin="20"/>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding Фамилия}" Foreground="#5A06EC" FontSize="20" Margin="2"/>
-                                        <TextBlock Text="{Binding Имя}"  Foreground="#5A06EC" FontSize="20" Margin="2"/>
-                                        <TextBlock Text="{Binding Отчество}" Foreground="#5A06EC" FontSize="20" Margin="2"/>
-                                    </StackPanel>
-
-                                    <TextBlock Text="{Binding Группы.код_группы}" HorizontalAlignment="Center" Foreground="#5A06EC" FontSize="20"/>
-                                    <TextBlock x:Name="Studentik" Text="{Binding StatusString}" HorizontalAlignment="Center" FontSize="20" Foreground="#5A06EC"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
-            </Border>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
- 

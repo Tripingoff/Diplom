@@ -29,8 +29,8 @@ namespace ИС_ККТД.Pages
         {
             InitializeComponent();
             DataGridGroup.ItemsSource = IS_KKTDEntities.GetContext().Успеваемость.OrderBy(p=>p.Дата).ToList();
-            CmbDisciplin.ItemsSource = IS_KKTDEntities.GetContext().Дисциплины.OrderBy(season => season.Название).ToList();
-            CmbGroup.ItemsSource = IS_KKTDEntities.GetContext().Группы.OrderBy(team => team.код_группы).ToList();
+            //CmbDisciplin.ItemsSource = IS_KKTDEntities.GetContext().Дисциплины.OrderBy(season => season.Название).ToList();
+            //CmbGroup.ItemsSource = IS_KKTDEntities.GetContext().Группы.OrderBy(team => team.код_группы).ToList();
             //присвоение выподающим спискам нулевых значение
             CmbDisciplin.SelectedIndex = 0;
             CmbGroup.SelectedIndex = 0;
@@ -50,14 +50,12 @@ namespace ИС_ККТД.Pages
 
         public void UpdateData()
         {
-            Группы selectedTeam = CmbGroup.SelectedItem as Группы;
-            Дисциплины selectedSeason = CmbDisciplin.SelectedItem as Дисциплины;
             List<Успеваемость> listPlayers = IS_KKTDEntities.GetContext().Успеваемость.ToList();
             //вывод значений из бд для выподающих списков, через сравнение их название
             if (CmbGroup.SelectedIndex > 0)
-                listPlayers = listPlayers.Where(x => x.Студенты.Группы == selectedTeam).ToList();
+                listPlayers = listPlayers.OrderBy(x => x.Студенты.Группы).ToList();
             if(CmbDisciplin.SelectedIndex > 0)
-                listPlayers = listPlayers.Where(x => x.Дисциплины == selectedSeason).ToList();
+                listPlayers = listPlayers.OrderBy(x => x.Дисциплины).ToList();
             DataGridGroup.ItemsSource = listPlayers;
         }
 

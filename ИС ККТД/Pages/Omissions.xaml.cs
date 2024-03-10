@@ -41,5 +41,10 @@ namespace ИС_ККТД.Pages
         {
             NavigationService.Navigate(new Pages.EditOmission((sender as Button).DataContext as Пропуски));
         }
+
+        private void DtPrOmission_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            DateTime? selectedDate = DtPrOmission.SelectedDate;
+        }
     }
 }

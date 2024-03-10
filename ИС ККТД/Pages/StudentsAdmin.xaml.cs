@@ -24,7 +24,9 @@ namespace ИС_ККТД.Pages
         public StudentsAdmin()
         {
             InitializeComponent();
-            ListBoxStudent.ItemsSource = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.id_студента).ToList();
+            ListBoxStudents.ItemsSource = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.id_студента).ToList();
+            CmbGroup.ItemsSource = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.Фамилия).ToList();
+            CmbGroup.SelectedIndex = 0;
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -40,7 +42,7 @@ namespace ИС_ККТД.Pages
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             //получаем все выделенные товары
-            var selectedGoods = ListBoxStudent.SelectedItems.Cast<Студенты>().ToList();
+            var selectedGoods = ListBoxStudents.SelectedItems.Cast<Студенты>().ToList();
             // вывод сообщения с вопросом Удалить запись?
             MessageBoxResult messageBoxResult = MessageBox.Show($"Удалить {selectedGoods.Count()}записей ??? ", "Удаление", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             //если пользователь нажал ОК пытаемся удалить запись
@@ -61,8 +63,8 @@ namespace ИС_ККТД.Pages
                     IS_KKTDEntities.GetContext().SaveChanges();
                     MessageBox.Show("Записи удалены");
                     List<Студенты> goods = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.id_студента).ToList();
-                    ListBoxStudent.ItemsSource = null;
-                    ListBoxStudent.ItemsSource = goods;
+                    ListBoxStudents.ItemsSource = null;
+                    ListBoxStudents.ItemsSource = goods;
                 }
                 catch (Exception ex)
                 {
@@ -71,6 +73,19 @@ namespace ИС_ККТД.Pages
 
                 }
             }
+        }
+
+        private void CmbGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+
+        public void Update()
+        {
+            var currentDisciplines = IS_KKTDEntities.GetContext().Студенты.OrderBy(p => p.id_студента).ToList();
+            if(CmbGroup.SelectedIndex > 0)
+                currentDisciplines = currentDisciplines.Where(p => p.Группы.код_группы == (CmbGroup.SelectedItem as Группы).код_группы).ToList();
+            ListBoxStudents.ItemsSource = currentDisciplines;
         }
     }
 }

@@ -52,7 +52,7 @@ namespace ИС_ККТД
                 List<Авторизация> users = IS_KKTDEntities.GetContext().Авторизация.ToList();
                 //попытка найти пользователя с указанным паролем и логином
                 //если такого пользователя не будет обнаружено то переменная u будет равна null
-                Авторизация user = users.FirstOrDefault(p => p.Пароль == TxtPassword.Text && p.Логин == TxtLogin.Text);
+                Авторизация user = users.FirstOrDefault(p => p.Пароль == PsPassword.Password && p.Логин == TxtLogin.Text);
                 if (user != null)
                 {
                     switch (user.Id_роли)
@@ -127,7 +127,7 @@ namespace ИС_ККТД
         {
             if (e.Key == Key.Enter)
             {
-                TxtPassword.Focus();
+                PsPassword.Focus();
             }
         }
 
@@ -136,6 +136,39 @@ namespace ИС_ККТД
             if (e.Key == Key.Enter)
             {
                 BtnOpen.Focus();
+            }
+        }
+
+        private void TxtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ChPassword_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            
+        }
+
+        private void ChPassword_Click(object sender, RoutedEventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+            if (checkBox.IsChecked.Value)
+            {
+                
+                TxtPassword.Text = PsPassword.Password; // скопируем в TextBox из PasswordBox
+                TxtPassword.Visibility = Visibility.Visible; // TextBox - отобразить
+                PsPassword.Visibility = Visibility.Hidden; // PasswordBox - скрыть
+            }
+            else
+            {
+                PsPassword.Password = TxtPassword.Text; // скопируем в PasswordBox из TextBox 
+                TxtPassword.Visibility = Visibility.Hidden; // TextBox - скрыть
+                PsPassword.Visibility = Visibility.Visible; // PasswordBox - отобразить
             }
         }
     }

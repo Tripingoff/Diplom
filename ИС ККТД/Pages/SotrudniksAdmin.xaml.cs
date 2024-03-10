@@ -73,5 +73,16 @@ namespace ИС_ККТД.Pages
 
             }
         }
+
+        private void TxtGroup_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
+        }
+        public void Update()
+        {
+            var currentSortudnik = IS_KKTDEntities.GetContext().Сотрудники.OrderBy(p => p.Id_сотрудника).ToList();
+            currentSortudnik = currentSortudnik.Where(p=>p.Фамилия.ToLower().Contains(TxtGroup.Text.ToLower())).ToList();
+            ListViewSotrudniki.ItemsSource = currentSortudnik;
+        }
     }
 }

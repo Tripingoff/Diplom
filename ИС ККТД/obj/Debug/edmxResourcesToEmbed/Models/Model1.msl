@@ -79,15 +79,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Преподователи">
-      <EntityTypeMapping TypeName="Model.Преподователи">
-        <MappingFragment StoreEntitySet="Преподователи">
-          <ScalarProperty Name="Id_преподавателя" ColumnName="Id_преподавателя" />
-          <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
-          <ScalarProperty Name="Должность" ColumnName="Должность" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Пропуски">
       <EntityTypeMapping TypeName="Model.Пропуски">
         <MappingFragment StoreEntitySet="Пропуски">
@@ -121,6 +112,7 @@
           <ScalarProperty Name="Должность2" ColumnName="Должность2" />
           <ScalarProperty Name="Почта" ColumnName="Почта" />
           <ScalarProperty Name="Фото" ColumnName="Фото" />
+          <ScalarProperty Name="Примечание" ColumnName="Примечание" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -175,6 +167,16 @@
           <ScalarProperty Name="Дата" ColumnName="Дата" />
           <ScalarProperty Name="Время" ColumnName="Время" />
           <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Расписание">
+      <EntityTypeMapping TypeName="Model.Расписание">
+        <MappingFragment StoreEntitySet="Расписание">
+          <ScalarProperty Name="Id_расписания" ColumnName="Id_расписания" />
+          <ScalarProperty Name="Файл" ColumnName="Файл" />
+          <ScalarProperty Name="Дата_начала" ColumnName="Дата_начала" />
+          <ScalarProperty Name="Дата_завершения" ColumnName="Дата_завершения" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

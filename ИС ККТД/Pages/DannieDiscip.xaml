@@ -1,0 +1,52 @@
+﻿<Page x:Class="ИС_ККТД.Pages.DannieDiscip"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="675" d:DesignWidth="1054"
+      Title="DannieDiscip">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Данные о дисциплинах" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Text="Код дисциплины:" Foreground="#707070" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0 0 100 0"/>
+            <Border CornerRadius="10" Background="White" Height="40" Width="300">
+                <TextBlock Text="{Binding Дисциплины.Код_дисциплины}" Height="40" Background="White" Width="200" Foreground="#707070" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <TextBlock Text="Название дисцпилины:" Foreground="#707070" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0 0 31 0"/>
+            <Border CornerRadius="10" Background="White" Height="40" Width="300">
+                <TextBlock Text="{Binding Дисциплины.Название}" Height="40" Foreground="#707070" Background="White" Width="200" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <TextBlock Text="Преподователь:" Foreground="#707070" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0 0 117 0"/>
+            <TextBlock Text="{Binding Сотрудники.Фамилия}" Height="40" Foreground="#707070" Background="White" Width="200" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            <TextBlock Text="{Binding Сотрудники.Имя}" Height="40" Foreground="#707070" Background="White" Width="200" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            <TextBlock Text="{Binding Сотрудники.Отчество}" Height="40" Foreground="#707070" Background="White" Width="200" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4">
+            <TextBlock Text="Количество часов" Foreground="#707070" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0 0 93 0"/>
+            <Border CornerRadius="10" Background="White" Height="40" Width="300">
+                <TextBlock Text="{Binding Количество_часов}" Height="40" Foreground="#707070" Background="White" Width="200" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="5">
+            <TextBlock Text="Вид зачета:" Foreground="#707070" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0 0 173 0"/>
+            <Border CornerRadius="10" Background="White" Height="40" Width="300">
+                <TextBlock Text="{Binding Вид_зачета.Название}" Height="40" Foreground="#707070" Background="White" Width="200" FontSize="25" FontWeight="SemiBold" FontFamily="Segoe UI"/>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

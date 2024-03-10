@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,11 +37,11 @@ namespace ИС_ККТД.Windows
         {
             StringBuilder s = new StringBuilder();
             // проверка полей на содержимое 
-           if (string.IsNullOrWhiteSpace(_currentUser.Логин))
+            if (_currentUser.Логин != TxtLogin.Text && string.IsNullOrEmpty(_currentUser.Логин))
                 s.AppendLine("Введите логин");
             if (_currentUser.Пароль == null)
                 s.AppendLine("Введите пароль");
-            if (TxtPassword.Text != TxtPassword1.Text)
+            if (PsPassword.Password != PsPassword1.Password)
             {
                 s.AppendLine("Пароли не совподают!");
             }
@@ -63,15 +64,13 @@ namespace ИС_ККТД.Windows
             if (_currentUser.Id_user == 0)
             {
                 // добавляем товар в БД 
-                IS_KKTDEntities.GetContext().Авторизация.Add(_currentUser);
+                IS_KKTDEntities.GetContext().Авторизация.AddOrUpdate(_currentUser);
             }
             try
             { // если изменилось изображение 
-                IS_KKTDEntities.GetContext().SaveChanges(); // Сохраняем изменения в БД 
+                IS_KKTDEntities.GetContext().SaveChanges();
                 MessageBox.Show("Запись Изменена");
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                Close();// Возвращаемся на предыдущую форму 
+                this.Close();// Возвращаемся на предыдущую форму 
             }
             catch (Exception ex)
             {
@@ -87,7 +86,44 @@ namespace ИС_ККТД.Windows
         {
             var currentDisciplines = IS_KKTDEntities.GetContext().Авторизация.OrderBy(p => p.Id_user).ToList();
             currentDisciplines = currentDisciplines.Where(p => p.Логин.ToLower().Contains(TxtLogin.Text.ToLower())).ToList();
-            SpSearch.DataContext = currentDisciplines;
+            SpLogin.DataContext = currentDisciplines;
         }
+
+        private void BtnVisible1_Click(object sender, RoutedEventArgs e)
+        {
+            var check = sender as CheckBox;
+            if (check.IsChecked.Value)
+            {
+
+                TxtPassword1.Text = PsPassword1.Password; // скопируем в TextBox из PasswordBox
+                TxtPassword1.Visibility = Visibility.Visible; // TextBox - отобразить
+                PsPassword1.Visibility = Visibility.Hidden; // PasswordBox - скрыть
+            }
+            else
+            {
+                PsPassword1.Password = TxtPassword1.Text; // скопируем в PasswordBox из TextBox 
+                TxtPassword1.Visibility = Visibility.Hidden; // TextBox - скрыть
+                PsPassword1.Visibility = Visibility.Visible; // PasswordBox - отобразить
+            }
+        }
+
+        private void BtnVisible_Click(object sender, RoutedEventArgs e)
+        {
+            var buttoon = sender as CheckBox;
+            if (buttoon.IsChecked.Value)
+            {
+
+                TxtPassword.Text = PsPassword.Password; // скопируем в TextBox из PasswordBox
+                TxtPassword.Visibility = Visibility.Visible; // TextBox - отобразить
+                PsPassword.Visibility = Visibility.Hidden; // PasswordBox - скрыть
+            }
+            else
+            {
+                PsPassword.Password = TxtPassword.Text; // скопируем в PasswordBox из TextBox 
+                TxtPassword.Visibility = Visibility.Hidden; // TextBox - скрыть
+                PsPassword.Visibility = Visibility.Visible; // PasswordBox - отобразить
+            }
+        }
+
     }
 }

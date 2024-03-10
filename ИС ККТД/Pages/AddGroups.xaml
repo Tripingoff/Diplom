@@ -222,16 +222,22 @@
             </Setter>
         </Style>
     </Page.Resources>
-    <Border BorderBrush="#5A06EC" BorderThickness="2" Background="White" CornerRadius="30">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="24"/>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            </StackPanel>
-            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="515"/>
+            <ColumnDefinition Width="515"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Добавление групп" FontSize="40" Grid.Row="0" Margin="5 0 0 15"/>
+        <Button x:Name="BtnSave" Style="{DynamicResource ButtonStyle1}" FontSize="25" HorizontalAlignment="Right" Width="300" Height="40" Grid.Row="0" Grid.Column="1" Margin="0 5 30 0" Content="Сохранить" Click="BtnSave_Click"/>
+        <Border BorderThickness="2" Height="2" BorderBrush="#D7D8DA" Grid.Row="2" Grid.ColumnSpan="2" Margin="0 15"/>
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="40"/>
@@ -244,30 +250,26 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Row="8" Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Button x:Name="BtnSave" Style="{DynamicResource ButtonStyle1}" Content="Сохранить" FontSize="20" Background="#5A06EC" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200"  Grid.Column="1" Margin="213,3,222,0" Click="BtnSave_Click"/>
-                </StackPanel>
-                <StackPanel Grid.Row="0" Grid.RowSpan="8" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Номер группы" Margin="10 4" FontSize="20" Foreground="#5A06EC" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Код группы" Margin="10 5" FontSize="20" Foreground="#5A06EC" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Специальность" Margin="10 5" FontSize="20" Foreground="#5A06EC" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Курс" Margin="10 5" FontSize="20" Foreground="#5A06EC" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Куратор" Margin="10 5" FontSize="20" Foreground="#5A06EC" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Количество студентов" Margin="10 5" FontSize="20" Foreground="#5A06EC" HorizontalAlignment="Right"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="410"/>
+                <ColumnDefinition Width="515"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.RowSpan="8" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Номер группы" TextAlignment="Center" Margin="0 0 0 19" FontSize="25" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Код группы" Margin="0 0 0 19" FontSize="25" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Наименование специальности" Margin="0 0 0 19" FontSize="25" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Курс" Margin="0 0 0 19" FontSize="25" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Куратор" Margin="0 0 0 19" FontSize="25" Foreground="Black" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Количество студентов" Margin="0 0 0 19" FontSize="25" Foreground="Black" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8" HorizontalAlignment="Left">
-                    <TextBox BorderThickness="0 0 0 1" BorderBrush="#5A06EC" x:Name="TxtNumber" Text="{Binding Id_группы}" Grid.Row="1"  HorizontalAlignment="Left" Padding="0,2" Height="30" Width="200" Margin="10 3"/>
-                    <TextBox BorderThickness="0 0 0 1" BorderBrush="#5A06EC" x:Name="TxtKod" Text="{Binding код_группы}" Grid.Row="3" Padding="0,2" HorizontalAlignment="Left" Height="30" Width="200" Margin="10 3"/>
-                    <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CmbSpecialnost" SelectedItem="{Binding Специальности}" Height="30" Grid.Row="2" Margin="10 3" HorizontalAlignment="Left" DisplayMemberPath="Название" SelectedValuePath="Id_специальности" Width="200"/>
-                    <TextBox BorderThickness="0 0 0 1" BorderBrush="#5A06EC" x:Name="TxtKyrs" Text="{Binding курс}" Width="200"  HorizontalAlignment="Left" Grid.Row="4" Padding="0,2" Height="30" Margin="10 3"/>
-                    <ComboBox x:Name="CmbCurator" SelectedItem="{Binding Преподователи}"  DisplayMemberPath="Id_преподавателя" SelectedValuePath="Id_преподователя" Width="200" Grid.Row="8" HorizontalAlignment="Left" Grid.Column="1" Padding="0,2" Height="30" Margin="10 3"/>
-                    <TextBox BorderThickness="0 0 0 1" BorderBrush="#5A06EC" x:Name="TxtCount" Text="{Binding Количество_студентов}" Width="200" Height="30" TextWrapping="Wrap" Grid.Row="11" Grid.Column="1" Padding="0,2"  HorizontalAlignment="Left" Margin="10 3"/>
+                    <TextBox BorderThickness="0 0 0 1" BorderBrush="Black" x:Name="TxtNumber" Text="{Binding Id_группы}" Grid.Row="1"  HorizontalAlignment="Left" Padding="0,2" Height="40" Width="300" Margin="0 0 0 15"/>
+                    <TextBox BorderThickness="0 0 0 1" BorderBrush="Black" x:Name="TxtKod" Text="{Binding код_группы}" Grid.Row="3" Padding="0,2" HorizontalAlignment="Left" Height="40" Width="300" Margin="0 0 0 15"/>
+                    <ComboBox x:Name="CmbSpecialnost" SelectedItem="{Binding Специальности}" Height="30" Grid.Row="2" Margin="0 0 0 15" HorizontalAlignment="Left" DisplayMemberPath="Название" SelectedValuePath="Id_специальности" Width="300"/>
+                    <TextBox BorderThickness="0 0 0 1" BorderBrush="Black" x:Name="TxtKyrs" Text="{Binding курс}" Width="300"  HorizontalAlignment="Left" Grid.Row="4" Padding="0,2" Height="40" Margin="0 0 0 15"/>
+                    <ComboBox x:Name="CmbCurator" SelectedItem="{Binding Преподователи}"  DisplayMemberPath="Id_преподавателя" SelectedValuePath="Id_преподователя" Width="300" Grid.Row="8" HorizontalAlignment="Left" Grid.Column="1" Padding="0,2" Height="40" Margin="0 0 0 15"/>
+                    <TextBox BorderThickness="0 0 0 1" BorderBrush="Black" x:Name="TxtCount" Text="{Binding Количество_студентов}" Width="300" Height="40" TextWrapping="Wrap" Grid.Row="11" Grid.Column="1" Padding="0,2"  HorizontalAlignment="Left" Margin="0 "/>
                 </StackPanel>
             </Grid>            <StackPanel Grid.Row="2"/>
         </Grid>
-    </Border>
 </Page>

@@ -39,5 +39,10 @@ namespace ИС_ККТД.Pages
         {
             UpdateData();
         }
+
+        private void BtnDannie_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.DannieDiscip((sender as Button).DataContext as ДисцпилинаПреподователь));
+        }
     }
 }

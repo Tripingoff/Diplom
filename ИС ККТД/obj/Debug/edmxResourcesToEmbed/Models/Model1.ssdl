@@ -74,14 +74,6 @@
     <Property Name="Общий_балл" Type="float" />
     <Property Name="Оценка" Type="int" />
   </EntityType>
-  <EntityType Name="Преподователи">
-    <Key>
-      <PropertyRef Name="Id_преподавателя" />
-    </Key>
-    <Property Name="Id_преподавателя" Type="int" Nullable="false" />
-    <Property Name="Id_сотрудника" Type="int" Nullable="false" />
-    <Property Name="Должность" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="Пропуски">
     <Key>
       <PropertyRef Name="Id_студента" />
@@ -97,6 +89,20 @@
     <Property Name="Дата" Type="date" Nullable="false" />
     <Property Name="Время" Type="time" Precision="7" Nullable="false" />
     <Property Name="Скан" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "IS KKTD.dbo.Расписание" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Расписание">
+    <Key>
+      <PropertyRef Name="Id_расписания" />
+      <PropertyRef Name="Файл" />
+      <PropertyRef Name="Дата_начала" />
+      <PropertyRef Name="Дата_завершения" />
+    </Key>
+    <Property Name="Id_расписания" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Файл" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Дата_начала" Type="date" Nullable="false" />
+    <Property Name="Дата_завершения" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Роли">
     <Key>
@@ -118,6 +124,7 @@
     <Property Name="Должность2" Type="int" />
     <Property Name="Почта" Type="nvarchar" MaxLength="255" />
     <Property Name="Фото" Type="nvarchar(max)" />
+    <Property Name="Примечание" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Специальности">
     <Key>
@@ -416,7 +423,6 @@
     <EntitySet Name="ДисцпилинаПреподователь" EntityType="Self.ДисцпилинаПреподователь" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Итог_дисциплин" EntityType="Self.Итог_дисциплин" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Преподователи" EntityType="Self.Преподователи" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Пропуски" EntityType="Self.Пропуски" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Роли" EntityType="Self.Роли" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
@@ -424,6 +430,14 @@
     <EntitySet Name="Студенты" EntityType="Self.Студенты" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Тип_пропусков" EntityType="Self.Тип_пропусков" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Успеваемость" EntityType="Self.Успеваемость" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Расписание" EntityType="Self.Расписание" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Расписание].[Id_расписания] AS [Id_расписания], 
+    [Расписание].[Файл] AS [Файл], 
+    [Расписание].[Дата_начала] AS [Дата_начала], 
+    [Расписание].[Дата_завершения] AS [Дата_завершения]
+    FROM [dbo].[Расписание] AS [Расписание]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Авторизация_Роли" Association="Self.FK_Авторизация_Роли">
       <End Role="Роли" EntitySet="Роли" />
       <End Role="Авторизация" EntitySet="Авторизация" />

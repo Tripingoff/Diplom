@@ -24,7 +24,12 @@ namespace ИС_ККТД.Pages
         public Results()
         {
             InitializeComponent();
-            DataGridResult.ItemsSource = IS_KKTDEntities.GetContext().Итог_дисциплин.Where(p => p.Студенты.id_user == Manager.CurrentUser.Id_user).ToList();
+            ListBoxDisciplins.ItemsSource = IS_KKTDEntities.GetContext().Итог_дисциплин.Where(p => p.Студенты.id_user == Manager.CurrentUser.Id_user).ToList();
+        }
+
+        private void TxtKod_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

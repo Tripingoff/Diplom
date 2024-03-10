@@ -22,6 +22,7 @@ namespace ИС_ККТД.Windows
     {
         public static Sotrudnik Window;
         Авторизация _currentsotrudnik;
+        Сотрудники _selectedSotrudnik;
         public Sotrudnik()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace ИС_ККТД.Windows
             Window = this;
             PagesNavigation.NavigationService.Navigate(new Pages.Main());
             list.ItemsSource = IS_KKTDEntities.GetContext().Сотрудники.Where(p => p.Id_user == Manager.CurrentUser.Id_user).ToList();
+            //Manager.StudentGroups.Сотрудники = _currentsotrudnik.Сотрудники;
 
         }
         
@@ -94,6 +96,11 @@ namespace ИС_ККТД.Windows
             admin.Show();
         }
 
+        private void Zachets_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             if (PagesNavigation.CanGoBack)
@@ -105,7 +112,7 @@ namespace ИС_ККТД.Windows
             if (PagesNavigation.CanGoBack)
             {
                 BtnBack.Visibility = Visibility.Visible;
-                    
+
             }
             else
             {

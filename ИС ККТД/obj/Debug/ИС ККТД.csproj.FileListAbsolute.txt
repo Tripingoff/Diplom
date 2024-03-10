@@ -83,3 +83,15 @@ C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Zavotd
 C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\Syncfusion.Compression.Base.xml
 C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Zachets.g.cs
 C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Zachets.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Disciplini.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodovateli.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Disciplini.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodovateli.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\DannieDiscip.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\DannieDiscip.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\StudentZav.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\StudentZav.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddDisciplines.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddDisciplines.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodavatels.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodavatels.baml

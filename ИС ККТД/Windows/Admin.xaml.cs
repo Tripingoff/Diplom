@@ -101,9 +101,9 @@ namespace ИС_ККТД.Windows
             if(PagesNavigation.CanGoBack)
             PagesNavigation.GoBack();
         }
-
         private void PagesNavigation_ContentRendered(object sender, EventArgs e)
         {
+
             if (PagesNavigation.CanGoBack)
             {
                 BtnBack.Visibility = Visibility.Visible;
@@ -114,5 +114,11 @@ namespace ИС_ККТД.Windows
             }
             return;
         }
+
+        private void Disciplines_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.NavigationService.Navigate( new Pages.Disciplini());
+        }
+
     }
 }

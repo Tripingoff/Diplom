@@ -39,7 +39,7 @@ namespace ИС_ККТД.Pages
             DataContext = _currentGroup;
             // единицы измерения товаров
             CmbSpecialnost.ItemsSource = IS_KKTDEntities.GetContext().Специальности.ToList();
-            CmbCurator.ItemsSource = IS_KKTDEntities.GetContext().Преподователи.ToList();
+            CmbCurator.ItemsSource = IS_KKTDEntities.GetContext().Сотрудники.Where(p=>p.Должность == 6).ToList();
         }
         /// <summary>
         /// Проверка полей ввод на корректыне данные

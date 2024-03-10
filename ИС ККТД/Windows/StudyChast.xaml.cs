@@ -107,6 +107,21 @@ namespace ИС_ККТД.Windows
             }
             return;
         }
+
+        private void Disciplines_Click(object sender, RoutedEventArgs e)
+        {
+             PagesNavigation.NavigationService.Navigate(new Pages.Disciplini());
+        }
+
+        private void Raspisanie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Prepodavateli_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.NavigationService.Navigate(new Pages.Prepodavatels());
+        }
     }
 }
 

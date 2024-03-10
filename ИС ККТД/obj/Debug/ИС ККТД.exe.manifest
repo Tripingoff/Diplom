@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ИС ККТД.exe" size="3813792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ИС ККТД.exe" size="4683680">
       <assemblyIdentity name="ИС ККТД" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5/woabPEVJ1Jud7i6mszzKDzuIG12Z8rDwDC21svEkk=</dsig:DigestValue>
+        <dsig:DigestValue>hh9YaRXN6ae0Lg/66yPNCJUjOIdYi8fQyRHAzhiT8Ns=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

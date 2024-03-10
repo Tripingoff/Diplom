@@ -42,7 +42,6 @@ namespace ИС_ККТД.Models
         public virtual DbSet<ДисцпилинаПреподователь> ДисцпилинаПреподователь { get; set; }
         public virtual DbSet<Должность> Должность { get; set; }
         public virtual DbSet<Итог_дисциплин> Итог_дисциплин { get; set; }
-        public virtual DbSet<Преподователи> Преподователи { get; set; }
         public virtual DbSet<Пропуски> Пропуски { get; set; }
         public virtual DbSet<Роли> Роли { get; set; }
         public virtual DbSet<Сотрудники> Сотрудники { get; set; }
@@ -50,6 +49,7 @@ namespace ИС_ККТД.Models
         public virtual DbSet<Студенты> Студенты { get; set; }
         public virtual DbSet<Тип_пропусков> Тип_пропусков { get; set; }
         public virtual DbSet<Успеваемость> Успеваемость { get; set; }
+        public virtual DbSet<Расписание> Расписание { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

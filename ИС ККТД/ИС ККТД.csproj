@@ -267,7 +267,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ObshiyBall.cs" />
-    <Compile Include="Models\raspis.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -298,10 +297,10 @@
     <Compile Include="Models\Итог_дисциплин.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Преподователи.cs">
+    <Compile Include="Models\Пропуски.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Пропуски.cs">
+    <Compile Include="Models\Расписание.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Роли.cs">
@@ -325,6 +324,9 @@
     <Compile Include="Pages\AddBall.xaml.cs">
       <DependentUpon>AddBall.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddDisciplines.xaml.cs">
+      <DependentUpon>AddDisciplines.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddGroups.xaml.cs">
       <DependentUpon>AddGroups.xaml</DependentUpon>
     </Compile>
@@ -340,11 +342,17 @@
     <Compile Include="Pages\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DannieDiscip.xaml.cs">
+      <DependentUpon>DannieDiscip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Deptors.xaml.cs">
       <DependentUpon>Deptors.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Disciplines.xaml.cs">
       <DependentUpon>Disciplines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Disciplini.xaml.cs">
+      <DependentUpon>Disciplini.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditOmission.xaml.cs">
       <DependentUpon>EditOmission.xaml</DependentUpon>
@@ -364,6 +372,12 @@
     <Compile Include="Pages\OmissionsSotrudnik.xaml.cs">
       <DependentUpon>OmissionsSotrudnik.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Prepodavatels.xaml.cs">
+      <DependentUpon>Prepodavatels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Prepodovateli.xaml.cs">
+      <DependentUpon>Prepodovateli.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Raspisanie.xaml.cs">
       <DependentUpon>Raspisanie.xaml</DependentUpon>
     </Compile>
@@ -378,6 +392,9 @@
     </Compile>
     <Compile Include="Pages\StudentsAdmin.xaml.cs">
       <DependentUpon>StudentsAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentZav.xaml.cs">
+      <DependentUpon>StudentZav.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Term.xaml.cs">
       <DependentUpon>Term.xaml</DependentUpon>
@@ -426,6 +443,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddDisciplines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddGroups.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -446,11 +467,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DannieDiscip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Deptors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Disciplines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Disciplini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -478,6 +507,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Prepodavatels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Prepodovateli.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Raspisanie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -495,6 +532,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StudentsAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StudentZav.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -574,48 +615,10 @@
     <Resource Include="Resources\Лого-ККТД.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\Выход акт.png" />
-    <Resource Include="Icons\Выход не акт.png" />
-    <Resource Include="Icons\Группы акт.png" />
-    <Resource Include="Icons\Группы не акт.png" />
-    <Resource Include="Icons\Дисциплина акт.png" />
-    <Resource Include="Icons\Дисциплина не акт.png" />
-    <Resource Include="Icons\Должники акт.png" />
-    <Resource Include="Icons\Должники не акт.png" />
-    <Resource Include="Icons\Итоги акт.png" />
-    <Resource Include="Icons\Итоги не акт.png" />
-    <Resource Include="Icons\Портфолио акт.png" />
-    <Resource Include="Icons\Портфолио не акт.png" />
-    <Resource Include="Icons\Пропуски акт.png" />
-    <Resource Include="Icons\Пропуски не акт.png" />
-    <Resource Include="Icons\Руководство акт.png" />
-    <Resource Include="Icons\Руководство не акт.png" />
-    <Resource Include="Icons\Семестр акт.png" />
-    <Resource Include="Icons\Семестр не акт.png" />
-    <Resource Include="Icons\Студенты акт.png" />
-    <Resource Include="Icons\Студенты не акт.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\Кнопка уменьшить 1 акт.png" />
-    <Resource Include="Icons\Кнопка уменьшить 1 не акт.png" />
-    <Resource Include="Icons\Закрыть акт.png" />
-    <Resource Include="Icons\Закрыть не акт.png" />
-    <Resource Include="Icons\Кнопка свернуть акт.png" />
-    <Resource Include="Icons\Кнопка свернуть не акт.png" />
-    <Resource Include="Icons\Кнопка уменьшения акт.png" />
-    <Resource Include="Icons\Кнопка уменьшения не акт.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\Назад не акт.png" />
-    <Resource Include="Icons\Назад акт.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Лого-ККТД.ico" />
-    <Resource Include="Icons\Найти акт.png" />
-    <Resource Include="Icons\Найти не акт.png" />
     <None Include="bin\Debug\Images\1free-icon-girl-201634.png" />
     <None Include="bin\Debug\Images\2free-icon-girl-201634.png" />
     <None Include="bin\Debug\Images\12free-icon-girl-201634.png" />
@@ -645,16 +648,6 @@
     <None Include="bin\Debug\Images\Цыганов.jpg" />
     <None Include="bin\Debug\Images\Шигабутдинова.jpg" />
     <None Include="bin\Debug\Images\Шишелева.jpg" />
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -668,6 +661,45 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\free-icon-report-card-10804592 %281%29.png" />
+    <Resource Include="Icons\photo.jpg" />
+    <Resource Include="Icons\profile.png" />
+    <Resource Include="Icons\Выход.png" />
+    <Resource Include="Icons\Группы.png" />
+    <Resource Include="Icons\Дисциплины.png" />
+    <Resource Include="Icons\Закрыть.png" />
+    <Resource Include="Icons\Кнопка редактировать.png" />
+    <Resource Include="Icons\Кнопка удалить.png" />
+    <Resource Include="Icons\Меню.png" />
+    <Resource Include="Icons\Портфолио.png" />
+    <Resource Include="Icons\Пропуски.png" />
+    <Resource Include="Icons\Развернуть.png" />
+    <Resource Include="Icons\Расписание.png" />
+    <Resource Include="Icons\Свернуть.png" />
+    <Resource Include="Icons\Семестр.png" />
+    <Resource Include="Icons\Сотрудники.png" />
+    <Resource Include="Icons\Студенты.png" />
+    <Resource Include="Icons\Поиск наведения.png" />
+    <Resource Include="Icons\Поиск нажатый.png" />
+    <Resource Include="Icons\Глаз_закрытый1.png" />
+    <Resource Include="Icons\Глаз_закрытый2.png" />
+    <Resource Include="Icons\Глаз_открытый1.png" />
+    <Resource Include="Icons\Глаз_открытый2.png" />
+    <Resource Include="Icons\Поиск.png" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\photo.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.5\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

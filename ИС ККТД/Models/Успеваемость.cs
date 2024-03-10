@@ -11,7 +11,6 @@ namespace ИС_ККТД.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
 
     public partial class Успеваемость
@@ -25,6 +24,7 @@ namespace ИС_ККТД.Models
     
         public virtual Дисциплины Дисциплины { get; set; }
         public virtual Студенты Студенты { get; set; }
+
         public double CalculateAverageGradeForStudent
         {
             get
@@ -42,7 +42,6 @@ namespace ИС_ККТД.Models
                             sum = +(int)(Оценка);
                             k++;
                             return sum;
-                            return k;
                         }
                         avg = sum / k;
                         return avg;
@@ -57,5 +56,4 @@ namespace ИС_ККТД.Models
             }
         }
     }
-
 }

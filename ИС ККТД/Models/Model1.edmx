@@ -79,14 +79,6 @@
           <Property Name="Общий_балл" Type="float" />
           <Property Name="Оценка" Type="int" />
         </EntityType>
-        <EntityType Name="Преподователи">
-          <Key>
-            <PropertyRef Name="Id_преподавателя" />
-          </Key>
-          <Property Name="Id_преподавателя" Type="int" Nullable="false" />
-          <Property Name="Id_сотрудника" Type="int" Nullable="false" />
-          <Property Name="Должность" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Пропуски">
           <Key>
             <PropertyRef Name="Id_студента" />
@@ -102,6 +94,20 @@
           <Property Name="Дата" Type="date" Nullable="false" />
           <Property Name="Время" Type="time" Precision="7" Nullable="false" />
           <Property Name="Скан" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "IS KKTD.dbo.Расписание" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Расписание">
+          <Key>
+            <PropertyRef Name="Id_расписания" />
+            <PropertyRef Name="Файл" />
+            <PropertyRef Name="Дата_начала" />
+            <PropertyRef Name="Дата_завершения" />
+          </Key>
+          <Property Name="Id_расписания" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Файл" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Дата_начала" Type="date" Nullable="false" />
+          <Property Name="Дата_завершения" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Роли">
           <Key>
@@ -123,6 +129,7 @@
           <Property Name="Должность2" Type="int" />
           <Property Name="Почта" Type="nvarchar" MaxLength="255" />
           <Property Name="Фото" Type="nvarchar(max)" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Специальности">
           <Key>
@@ -421,7 +428,6 @@
           <EntitySet Name="ДисцпилинаПреподователь" EntityType="Self.ДисцпилинаПреподователь" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Итог_дисциплин" EntityType="Self.Итог_дисциплин" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Преподователи" EntityType="Self.Преподователи" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Пропуски" EntityType="Self.Пропуски" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Роли" EntityType="Self.Роли" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
@@ -429,6 +435,14 @@
           <EntitySet Name="Студенты" EntityType="Self.Студенты" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Тип_пропусков" EntityType="Self.Тип_пропусков" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Успеваемость" EntityType="Self.Успеваемость" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Расписание" EntityType="Self.Расписание" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Расписание].[Id_расписания] AS [Id_расписания], 
+    [Расписание].[Файл] AS [Файл], 
+    [Расписание].[Дата_начала] AS [Дата_начала], 
+    [Расписание].[Дата_завершения] AS [Дата_завершения]
+    FROM [dbo].[Расписание] AS [Расписание]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Авторизация_Роли" Association="Self.FK_Авторизация_Роли">
             <End Role="Роли" EntitySet="Роли" />
             <End Role="Авторизация" EntitySet="Авторизация" />
@@ -594,14 +608,6 @@
           <NavigationProperty Name="Дисциплины" Relationship="Self.FK_Итог_дисциплин_Дисциплины" FromRole="Итог_дисциплин" ToRole="Дисциплины" />
           <NavigationProperty Name="Студенты" Relationship="Self.FK_Итог_дисциплин_Студенты1" FromRole="Итог_дисциплин" ToRole="Студенты" />
         </EntityType>
-        <EntityType Name="Преподователи">
-          <Key>
-            <PropertyRef Name="Id_преподавателя" />
-          </Key>
-          <Property Name="Id_преподавателя" Type="Int32" Nullable="false" />
-          <Property Name="Id_сотрудника" Type="Int32" Nullable="false" />
-          <Property Name="Должность" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Пропуски">
           <Key>
             <PropertyRef Name="Id_студента" />
@@ -642,6 +648,7 @@
           <Property Name="Должность2" Type="Int32" />
           <Property Name="Почта" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Фото" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Авторизация" Relationship="Self.FK_Сотрудники_Авторизация" FromRole="Сотрудники" ToRole="Авторизация" />
           <NavigationProperty Name="Группы" Relationship="Self.FK_Группы_Сотрудники" FromRole="Сотрудники" ToRole="Группы" />
           <NavigationProperty Name="ДисцпилинаПреподователь" Relationship="Self.FK_ДисцпилинаПреподователь_Сотрудники" FromRole="Сотрудники" ToRole="ДисцпилинаПреподователь" />
@@ -708,6 +715,18 @@
           <Property Name="Оценка" Type="Int32" />
           <NavigationProperty Name="Дисциплины" Relationship="Self.FK_Успеваемость_Дисциплины" FromRole="Успеваемость" ToRole="Дисциплины" />
           <NavigationProperty Name="Студенты" Relationship="Self.FK_Успеваемость_Студенты" FromRole="Успеваемость" ToRole="Студенты" />
+        </EntityType>
+        <EntityType Name="Расписание">
+          <Key>
+            <PropertyRef Name="Id_расписания" />
+            <PropertyRef Name="Файл" />
+            <PropertyRef Name="Дата_начала" />
+            <PropertyRef Name="Дата_завершения" />
+          </Key>
+          <Property Name="Id_расписания" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Файл" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Дата_начала" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Дата_завершения" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <Association Name="FK_Авторизация_Роли">
           <End Role="Роли" Type="Self.Роли" Multiplicity="1" />
@@ -922,7 +941,6 @@
           <EntitySet Name="ДисцпилинаПреподователь" EntityType="Self.ДисцпилинаПреподователь" />
           <EntitySet Name="Должность" EntityType="Self.Должность" />
           <EntitySet Name="Итог_дисциплин" EntityType="Self.Итог_дисциплин" />
-          <EntitySet Name="Преподователи" EntityType="Self.Преподователи" />
           <EntitySet Name="Пропуски" EntityType="Self.Пропуски" />
           <EntitySet Name="Роли" EntityType="Self.Роли" />
           <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" />
@@ -930,6 +948,7 @@
           <EntitySet Name="Студенты" EntityType="Self.Студенты" />
           <EntitySet Name="Тип_пропусков" EntityType="Self.Тип_пропусков" />
           <EntitySet Name="Успеваемость" EntityType="Self.Успеваемость" />
+          <EntitySet Name="Расписание" EntityType="Self.Расписание" />
           <AssociationSet Name="FK_Авторизация_Роли" Association="Self.FK_Авторизация_Роли">
             <End Role="Роли" EntitySet="Роли" />
             <End Role="Авторизация" EntitySet="Авторизация" />
@@ -1124,15 +1143,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Преподователи">
-            <EntityTypeMapping TypeName="Model.Преподователи">
-              <MappingFragment StoreEntitySet="Преподователи">
-                <ScalarProperty Name="Id_преподавателя" ColumnName="Id_преподавателя" />
-                <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
-                <ScalarProperty Name="Должность" ColumnName="Должность" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Пропуски">
             <EntityTypeMapping TypeName="Model.Пропуски">
               <MappingFragment StoreEntitySet="Пропуски">
@@ -1166,6 +1176,7 @@
                 <ScalarProperty Name="Должность2" ColumnName="Должность2" />
                 <ScalarProperty Name="Почта" ColumnName="Почта" />
                 <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1220,6 +1231,16 @@
                 <ScalarProperty Name="Дата" ColumnName="Дата" />
                 <ScalarProperty Name="Время" ColumnName="Время" />
                 <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Расписание">
+            <EntityTypeMapping TypeName="Model.Расписание">
+              <MappingFragment StoreEntitySet="Расписание">
+                <ScalarProperty Name="Id_расписания" ColumnName="Id_расписания" />
+                <ScalarProperty Name="Файл" ColumnName="Файл" />
+                <ScalarProperty Name="Дата_начала" ColumnName="Дата_начала" />
+                <ScalarProperty Name="Дата_завершения" ColumnName="Дата_завершения" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
