@@ -1,0 +1,97 @@
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\ИС ККТД.exe.config
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\ИС ККТД.exe
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\ИС ККТД.pdb
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\EntityFramework.xml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.csproj.AssemblyReference.cache
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.csproj.SuggestedBindingRedirects.cache
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Apps (1).g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\MainWindow.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddGroups.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddSotrudniks.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddStudents.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Deptors.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Disciplines.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Groups.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\GroupsAdmin.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Main.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Omissions.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\OmissionsSotrudnik.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Results.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\SotrudniksAdmin.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Students.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\StudentsAdmin.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Term.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Admin.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Sotrudnik.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Student.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\App.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД_Content.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД_MarkupCompile.cache
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД_MarkupCompile.lref
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Apps (1).baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\MainWindow.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddGroups.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddSotrudniks.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddStudents.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Deptors.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Disciplines.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Groups.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\GroupsAdmin.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Main.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Omissions.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\OmissionsSotrudnik.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Results.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\SotrudniksAdmin.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Students.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\StudentsAdmin.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Term.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Admin.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Sotrudnik.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Student.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.g.resources
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС_ККТД.Properties.Resources.resources
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.csproj.GenerateResource.cache
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.csproj.CoreCompileInputs.cache
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.csproj.CopyComplete
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.exe
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.pdb
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddUser.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddUser.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\EditOmission.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\EditOmission.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\EditMain.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\EditMain.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\DeptorsClick.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\DeptorsClick.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddBall.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddOmission.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddBall.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddOmission.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.csproj.Fody.CopyLocal.cache
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\ИС ККТД.exe.manifest
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\ИС ККТД.application
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.exe.manifest
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\ИС ККТД.application
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Raspisanie.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\StudyChast.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Zavotdel.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Raspisanie.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\StudyChast.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Windows\Zavotdel.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\bin\Debug\Syncfusion.Compression.Base.xml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Zachets.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Zachets.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Disciplini.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodovateli.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Disciplini.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodovateli.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\DannieDiscip.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\DannieDiscip.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\StudentZav.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\StudentZav.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddDisciplines.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\AddDisciplines.baml
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodavatels.g.cs
+C:\Users\olegk\source\repos\ИС ККТД\ИС ККТД\obj\Debug\Pages\Prepodavatels.baml

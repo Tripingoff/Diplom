@@ -1,0 +1,596 @@
+﻿<Window x:Class="ИС_ККТД.Windows.Sotrudnik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ИС_ККТД.Windows"
+        mc:Ignorable="d"
+         MinHeight="768" MinWidth="1366" MaxHeight="1060" Background="Transparent" MaxWidth="1900" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <SolidColorBrush x:Key="PrimaryBlueColor" Color="#5B7FFF"/>
+        <SolidColorBrush x:Key="PrimaryGrayColor" Color="#707070"/>
+        <Style x:Key="ComboboxButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" CornerRadius="11" BorderThickness="0" BorderBrush="#707070" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuIconStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Width" Value="5"/>
+            <Setter Property="Height" Value="5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <Viewbox Height="25" Width="25" Margin="0 0 0 0" Stretch="UniformToFill">
+                                <Canvas Height="512" Width="512">
+                                    <Path x:Name="ico1" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="White" Margin="0 50 0 0"/>
+                                    <Path x:Name="ico2" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="White" Margin="0 220 0 0"/>
+                                    <Path x:Name="ico3" Data="m32 0h448c17.671875 0 32 14.328125 32 32s-14.328125 32-32 32h-448c-17.671875 0-32-14.328125-32-32s14.328125-32 32-32zm0 0" Fill="WHite" Margin="0 400 0 0"/>
+                                </Canvas>
+                            </Viewbox>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFFFFF"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuRadioButtonStyle1" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="menuButton"  Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Selected  -->
+                                <Border x:Name="btnSelected" Grid.ColumnSpan="2" Width="260" HorizontalAlignment="Right"/>
+
+                                <!-- Icon -->
+                                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
+                                    <!--<Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Icons/Семестр не акт.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseButton}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Семестр акт.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Семестр акт.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>-->
+                                </Image>
+
+
+                                <!-- Text -->
+                                <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+
+                                <Setter TargetName="btnSelected" Property="Background" Value="#AEE1E4"/>
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuRadioButtonStyle2" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="menuButton"  Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Selected  -->
+                                <Border x:Name="btnSelected" Grid.ColumnSpan="2" Width="260" HorizontalAlignment="Right"/>
+
+                                <!-- Icon -->
+                                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
+                                    <!--<Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Icons/Дисциплина не акт.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseButton}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Дисциплина акт.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Дисциплина акт.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>-->
+                                </Image>
+
+
+                                <!-- Text -->
+                                <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+
+                                <Setter TargetName="btnSelected" Property="Background" Value="#AEE1E4"/>
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuRadioButtonStyle3" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="menuButton"  Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Selected  -->
+                                <Border x:Name="btnSelected" Grid.ColumnSpan="2" Width="260" HorizontalAlignment="Right"/>
+
+                                <!-- Icon -->
+                                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
+                                    <!--<Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Icons/Итоги не акт.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseButton}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Итоги акт.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Итоги акт.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>-->
+                                </Image>
+
+
+                                <!-- Text -->
+                                <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+
+                                <Setter TargetName="btnSelected" Property="Background" Value="#AEE1E4"/>
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuRadioButtonStyle4" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="menuButton"  Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Selected  -->
+                                <Border x:Name="btnSelected" Grid.ColumnSpan="2" Width="260" HorizontalAlignment="Right"/>
+
+                                <!-- Icon -->
+                                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="30" Height="30">
+                                    <!--<Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Icons/Пропуски не акт.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseButton}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Пропуски акт.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                                    <Setter Property="Source" Value="/Icons/Пропуски акт.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>-->
+                                </Image>
+
+
+                                <!-- Text -->
+                                <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"
+                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                                FontWeight="{TemplateBinding FontWeight}"
+                                                FontSize="{TemplateBinding FontSize}"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+
+                                <Setter TargetName="btnSelected" Property="Background" Value="#AEE1E4"/>
+                                <Setter TargetName="txtName" Property="Foreground" Value="#904A76"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="Button" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#B2B2B2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="7" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#723ECB"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#723ECB"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="50">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="#F1F2F7" CornerRadius="30">
+        <Grid MouseDown="Grid_MouseDown">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/Лого-ККТД.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Height="49" Grid.Row="0" Grid.Column="0" Margin="15 15 15 0"/>
+
+            <Border  CornerRadius="0 50 0 30" VerticalAlignment="Bottom" Grid.Row="1">
+                <Border CornerRadius="0 50 0 30" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="1,0">
+                            <GradientStop Color="#5A06EC" Offset="0.2"/>
+                            <GradientStop Color="#2D0376" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid x:Name="gridMenu" Width="250" Height="60">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="118"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Menu-->
+                        <!--<Border CornerRadius="0 50 0 30" Height="116" Width="250" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">-->
+
+                        <ToggleButton x:Name="btnMenu" Height="25" Width="25" HorizontalAlignment="Right" VerticalAlignment="Top" BorderThickness="0" Background="Transparent" Style="{StaticResource MenuIconStyle}" Cursor="Hand" Margin="0 20 30 0" Grid.Row="0">
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Height" BeginTime="0:0:0" From="720" To="60" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="Height" BeginTime="0:0:0" From="60" To="720" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+
+                        <ListBox x:Name="list" Grid.Row="1" VerticalAlignment="Top"  Width="191" Height="98" BorderThickness="0" Background="Transparent" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0 20 0 0">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListBoxItem}">
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel x:Name="StackPanelProfil" Orientation="Vertical" HorizontalAlignment="Center"  Grid.Row="1">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Фамилия}" Foreground="White" FontSize="20" Margin="2"/>
+                                            <TextBlock Text="{Binding Имя}"  Foreground="White" FontSize="20" Margin="2"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding Отчество}" HorizontalAlignment="Center" Foreground="White" FontSize="20" Margin="2"/>
+                                        <TextBlock Text="{Binding Должность.Наименование}" HorizontalAlignment="Center" Foreground="White" FontSize="20"/>
+                                        <TextBlock x:Name="Studentik" Text="{Binding StatusString}" HorizontalAlignment="Center" FontSize="20" Foreground="White"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <StackPanel Grid.Row="2" Height="168" Margin="0 40 0 232">
+                            <RadioButton x:Name="Student" Content="Студенты" Style="{DynamicResource MenuRadioButtonStyle1}" Cursor="Hand" Margin="2 2 0 0" Click="Students_Click"/>
+                            <RadioButton x:Name="Groups" Content="Группы" Style="{DynamicResource MenuRadioButtonStyle2}" Margin="2 2 0 0" Cursor="" Click="Group_Click"/>
+                            <RadioButton x:Name="Omissions" Content="Пропуски" Style="{DynamicResource MenuRadioButtonStyle3}" Cursor="Hand" Margin="2 2 0 0" Click="Omissions_Click"/>
+                            <RadioButton x:Name="Zachets" Content="Зачеты" Style="{DynamicResource MenuRadioButtonStyle4}" Margin="2 2 0 0" Cursor="Hand" Click="Zachets_Click"/>
+                        </StackPanel>
+
+                        <Button Style="{DynamicResource Button}" Name="Exit" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135" Height="30" Click="Exit_Click">
+                            <StackPanel Orientation="Horizontal" >
+                                <Image Height="20" Width="20" >
+                                    <!--<Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="/Icons/Выход не акт.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMouseOver, ElementName=Exit}" Value="True">
+                                                        <Setter Property="Source" Value="/Icons/Выход акт.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                                        <Setter Property="Source" Value="/Icons/Выход акт.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>-->
+                                </Image>
+                                <TextBlock Text="Выход" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="BtnBack" Grid.Row="3" Width="30" Height="30" HorizontalAlignment="Right" Margin="0 0 30 0" Click="BtnBack_Click">
+                            <Image Height="30" Width="30"/>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Border>
+
+            <Frame Grid.Row="2" Grid.Column="2" Margin="25" x:Name="PagesNavigation" ContentRendered="PagesNavigation_ContentRendered"  NavigationUIVisibility="Hidden"/>
+
+            <Grid x:Name="gridMenu1" Width="60" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" >
+                <Border CornerRadius="0 30 0 30" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
+                            <GradientStop Color="#5A06EC" Offset="0.3"/>
+                            <GradientStop Color="#2D0376" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="46"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Menu-->
+                        <ToggleButton x:Name="btnMenu1" Width="25" Height="25" HorizontalAlignment="Left"  BorderThickness="0" Background="Transparent" VerticalAlignment="Top" Style="{StaticResource MenuIconStyle}" Margin="15 7 15 7" Cursor="Hand" IsChecked="False">
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel1">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu1" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="195" To="60" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel1">
+                                            <DoubleAnimation Storyboard.TargetName="gridMenu1" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="195" Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+
+                        <!--<StackPanel Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent"  Margin="0,0,300,0">-->
+                        <Button x:Name="BtnMinimaze" Width="30" Height="30" HorizontalAlignment="Left"  Background="Transparent" Grid.Column="1" Click="BtnMinimaze_Click" Style="{DynamicResource Button}" >
+                            <Image VerticalAlignment="Center" Source="/Icons/Свернуть.png" HorizontalAlignment="Right"  Width="20" Height="20"/>
+                        </Button>
+                        <Button x:Name="BtnMaximaze" Width="30" Height="30" HorizontalAlignment="Left" Background="Transparent" Grid.Column="2" Click="BtnMaximaze_Click" Style="{DynamicResource Button}">
+                            <Image VerticalAlignment="Center" Source="/Icons/Развернуть.png" HorizontalAlignment="Right"  Width="15" Height="15"/>
+                        </Button>
+                        <Button x:Name="BtnClose" Width="30" Height="30" HorizontalAlignment="Left"  Background="Transparent" Grid.Column="3" Click="BtnClose_Click" Style="{DynamicResource Button}" >
+                            <Image VerticalAlignment="Center" Source="/Icons/Закрыть.png" HorizontalAlignment="Right"  Width="15" Height="15"/>
+                        </Button>
+                        <!--</StackPanel>-->
+                        <!--<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 300 0">
+            <Button x:Name="BtnBack" Foreground="#5A06EC" FontSize="20" Click="BtnBack_Click" Style="{DynamicResource Button}">
+                <Image VerticalAlignment="Center" Margin="0 0 13 0" HorizontalAlignment="Right"  Width="20" Height="20">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Icons/Назад не акт.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=BtnBack}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Назад акт.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Назад акт.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+        </StackPanel>-->
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

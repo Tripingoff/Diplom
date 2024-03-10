@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90cfe0d4bb0a4db1826713d3001f297e" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Авторизация" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Вид_зачета" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Группы" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Дисциплины" Width="1.5" PointX="10.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ДисцпилинаПреподователь" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Должность" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Итог_дисциплин" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Пропуски" Width="1.5" PointX="15.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Роли" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Сотрудники" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Специальности" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Студенты" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Тип_пропусков" Width="1.5" PointX="13.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Успеваемость" Width="1.5" PointX="12.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Расписание" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Авторизация_Роли" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Сотрудники_Авторизация" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Студенты_Авторизация" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ДисцпилинаПреподователь_Вид_зачета" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Группы_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Группы_Специальности" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Студенты_Группы" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ДисцпилинаПреподователь_Дисциплины" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Итог_дисциплин_Дисциплины" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Пропуски_Дисциплины" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Успеваемость_Дисциплины" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ДисцпилинаПреподователь_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Сотрудники_Должность" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Итог_дисциплин_Студенты1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Пропуски_Студенты" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Пропуски_Тип_пропусков" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Успеваемость_Студенты" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
