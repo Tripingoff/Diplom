@@ -1,0 +1,95 @@
+﻿<Page x:Class="ИС_ККТД.Pages.Prepodavatels"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050" Title="Prepodavatels" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="95"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Преподаватели" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--TextBox Search-->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBox CaretBrush="#5A06EC" x:Name="TxtKod" Width="280" Height="40" Style="{DynamicResource Search}"/>
+            <TextBlock IsHitTestVisible="False" FontSize="20" Text="Поиск" FontWeight="SemiBold" Foreground="#D7D8DA" VerticalAlignment="Center" Margin="-270 0 40 0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=TxtKod}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <!--Button Search-->
+            <Button x:Name="search" Click="search_Click"  Style="{DynamicResource ButtonSearch}" Width="32" Height="32" Margin="-50 0 0 0">
+                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="25" Height="25">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Icons/Поиск1.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=search}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Поиск.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Поиск.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+        </StackPanel>
+        
+        <!--Border-->
+        <Border Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Bottom" BorderThickness=" 0 1 0 0" Height="1" Width="1066" BorderBrush="#D7D8DA" Background="Transparent"/>
+
+        <!--ListView-->
+        <ListView Margin="0 20 0 0" BorderThickness="0" Background="Transparent" x:Name="ListViewSotrudniki" Grid.Row="3"  ScrollViewer.VerticalScrollBarVisibility="Hidden"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White" CornerRadius="15" Width="245" Height="260" Margin="0 0 0 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <!--Image Photo-->
+                            <Image Grid.Row="0" Source="{Binding Сотрудники.GetPhoto}" Width="180" Height="180" />
+
+                            <!--StackPanel-->
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <TextBlock Text="{Binding Сотрудники.Фамилия}" FontSize="20" Margin="0 0 5 0"/>
+                                <TextBlock Text="{Binding Сотрудники.Имя}" FontSize="20"/>
+                            </StackPanel>
+
+                            <!--TextBlock-->
+                            <TextBlock Grid.Row="2" Text="{Binding Сотрудники.Отчество}" FontSize="20" HorizontalAlignment="Center"/>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

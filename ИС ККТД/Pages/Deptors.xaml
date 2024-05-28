@@ -1,0 +1,190 @@
+﻿<Page x:Class="ИС_ККТД.Pages.Deptors"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050" Title="Должники" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Должники" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+        <!--StackPanel ComboBox Groups-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" >
+            <TextBlock Text="Сортировка по группам:" VerticalAlignment="Center" FontSize="20" Foreground="#696A6E" FontWeight="SemiBold" Margin="10 0"/>
+            <ComboBox Style="{DynamicResource ComboBox}" x:Name="CmbGroup" Width="200" DisplayMemberPath="код_группы" SelectedItem="{Binding Группы}" SelectedValuePath="Id_группы" SelectionChanged="CmbGroup_SelectionChanged"/>
+        </StackPanel >
+
+        <!--StackPanel ComboBox Disciplines-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="Сортировка по дисциплинам:" VerticalAlignment="Center" FontSize="20" Foreground="#696A6E" FontWeight="SemiBold" Margin="10 0"/>
+            <Grid Width="200" Height="40">
+                <ComboBox Style="{DynamicResource ComboBox}" x:Name="CmbDisciplin" Width="200" SelectedItem="{Binding Дисциплины}" SelectedValuePath="Id_дисциплины" SelectionChanged="CmbDisciplines_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Код_дисциплины}" Margin="0 0 3 0"/>
+                                <TextBlock Text="{Binding Название}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <!--<TextBox x:Name="SearchName" Width="180" Background="Transparent" BorderThickness="0"/>-->
+            </Grid>
+        </StackPanel>
+
+        <!--Border-->
+        <Border Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" BorderThickness=" 0 2 0 0" Height="2" BorderBrush="#D7D8DA" Background="Transparent"/>
+
+        <!--Grid DataGrid-->
+        <Grid Grid.Row="3" Grid.ColumnSpan="2" Margin="0 20 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!--Border FIO-->
+            <Border Height="40" Width="1050" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top" BorderThickness="0" CornerRadius="8 8 0 0" Background="#5A06EA" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" BorderBrush="White" BorderThickness="0 0 1 0">
+                        <TextBlock Text="Фамилия Имя Отчество" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"/>
+                    </Border>
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1 0 1 0">
+                        <TextBlock Text="Дисциплины" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25" HorizontalAlignment="Right" Width="348"/>
+                    </Border>
+                    <Border Grid.Column="2" BorderBrush="White" BorderThickness="1 0 0 0">
+                        <TextBlock Text="Преподователь" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!--ListBox Student-->
+            <!--<ListBox x:Name="ListBoxStudent" Grid.Column="0" Grid.Row="1" BorderBrush="#D7D8DA" BorderThickness="0 0 1 0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#F1F2F7" Height="35" Width="340">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Студенты.Фамилия}" TextAlignment="Center" FontSize="20" Margin="0 0 5 0"/>
+                                    <TextBlock Text="{Binding Студенты.Имя}" TextAlignment="Center"  FontSize="20" Margin="0 0 5 0"/>
+                                    <TextBlock Text="{Binding Студенты.Отчество}" TextAlignment="Center" FontSize="20" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                -->
+            <!--ListBox Disciplin-->
+            <!--
+                <ListBox x:Name="ListBoxDisciplin" Grid.Row="1" Grid.Column="1" BorderBrush="#D7D8DA" BorderThickness="1 0 1 0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#F1F2F7" Height="35" Width="340">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Учебный_план.Дисциплины.Название}" TextAlignment="Center" FontSize="20"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                -->
+            <!--ListBoxUserDate-->
+            <!--
+                <ListBox Grid.Row="1" x:Name="ListBoxUserDate" Grid.Column="2" BorderBrush="#D7D8DA" BorderThickness="1 0 0 0"  ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#F1F2F7" Height="35" Width="340">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Сотрудники.Фамилия}" TextAlignment="Center" FontSize="20" Margin="3 0"/>
+                                    <TextBlock Text="{Binding Сотрудники.Имя}" TextAlignment="Center" FontSize="20" Margin="3 0"/>
+                                    <TextBlock Text="{Binding Сотрудники.Отчество}" TextAlignment="Center" FontSize="20" Margin="3 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>-->
+            <DataGrid  Grid.Row="1" SelectionChanged="ListBoxUserDate_SelectionChanged" IsReadOnly="True" Width="1050" HorizontalAlignment="Center" x:Name="ListBoxUserDate" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="#D7D8DA" BorderThickness="1 0 0 0"  ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="346">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Студенты.Фамилия}" Margin="5 0 5 0"/>
+                                    <TextBlock Text="{Binding Студенты.Имя}" Margin="5 0 5 0"/>
+                                    <TextBlock Text="{Binding Студенты.Отчество}" Margin="5 0 5 0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Width="350" Binding="{Binding Учебный_план.Дисциплины.Название}"/>
+
+                    <DataGridTemplateColumn Width="347">
+                        <!--<DataGridTemplateColumn.CellTemplate>
+                                -->
+                        <!--<DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Учебный_план.ДисцпилинаПреподователь.Сотрудники.Фамилия}" Margin="5 0 5 0"/>
+                                        <TextBlock Text="{Binding Учебный_план.ДисцпилинаПреподователь.Сотрудники.Имя}" Margin="5 0 5 0"/>
+                                        <TextBlock Text="{Binding Учебный_план.ДисцпилинаПреподователь.Сотрудники.Отчество}" Margin="5 0 5 0"/>
+                                    </StackPanel>
+                                </DataTemplate>-->
+                        <!--
+                            </DataGridTemplateColumn.CellTemplate>-->
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+
+            <!--Button-->
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button x:Name="Btnpdf" Height="35" Width="200" FontSize="20" Content="PDF группы" Margin="0 0 20 0" Style="{DynamicResource ButtonSave}" Click="Btnpdf_Click">
+                </Button>
+                <Button x:Name="Btnprint" Height="35" Width="200" FontSize="20"  Content="Печать допусков" Style="{DynamicResource ButtonSave}" Click="btnprint_Click">
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Page>

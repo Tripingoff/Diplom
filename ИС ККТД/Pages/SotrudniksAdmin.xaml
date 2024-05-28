@@ -1,0 +1,113 @@
+﻿<Page x:Class="ИС_ККТД.Pages.SotrudniksAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050" Title="Сотрудники">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Сотрудники" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--Button Add-->
+        <Button x:Name="BtnAdd" Style="{DynamicResource ButtonSave}" FontSize="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Height="40" Grid.Row="0" Content="+ Добавить сотрудника" Click="BtnAdd_Click"/>
+
+        <!--TextBox Search-->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBox CaretBrush="#5A06EC" x:Name="TxtKod" Width="280" Height="40" Style="{DynamicResource Search}"/>
+            <TextBlock IsHitTestVisible="False" FontSize="20" Text="Поиск" FontWeight="SemiBold" Foreground="#D7D8DA" VerticalAlignment="Center" Margin="-270 0 40 0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=TxtKod}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <!--Button Search-->
+            <Button x:Name="search" Click="search_Click"  Style="{DynamicResource ButtonSearch}" Width="32" Height="32" Margin="-50 0 0 0">
+                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="25" Height="25">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Icons/Поиск1.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=search}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Поиск.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Поиск.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+        </StackPanel>
+
+        <!--Border-->
+        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness=" 0 2 0 0" Height="2" BorderBrush="#D7D8DA" Background="Transparent"/>
+
+        <!--ListView-->
+        <ListView Margin="0 20 0 0" BorderThickness="0" Background="Transparent" x:Name="ListViewSotrudniki" Grid.Row="3"  ScrollViewer.VerticalScrollBarVisibility="Hidden"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White" CornerRadius="15" Width="245" Height="350" Margin="0 0 0 5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            
+                            <!--Image Photo-->
+                            <Image Grid.Row="0" Source="{Binding GetPhoto}" Width="180" Height="180" />
+
+                            <!--StackPanel-->
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <TextBlock Text="{Binding Фамилия}" FontSize="20" Margin="0 0 5 0"/>
+                                <TextBlock Text="{Binding Имя, StringFormat={}{0:0.}}" FontSize="20"/>
+                            </StackPanel>
+
+                            <!--TextBlock-->
+                            <TextBlock Grid.Row="2" Text="{Binding Отчество, StringFormat={}{0:0.}}" FontSize="20" HorizontalAlignment="Center"/>
+                            <TextBlock  Grid.Row="3" Text="{Binding Должность1.Название}" HorizontalAlignment="Center" FontSize="20" TextWrapping="Wrap" TextAlignment="Center"/>
+           
+                            <!--Button Edit/Delete-->
+                            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 15 5">
+                                <Button Style="{DynamicResource ButtonEdit}" x:Name="BtnEdit" BorderThickness="0" Background="#3D03A1" Width="30" Height="30" Click="BtnEdit_Click" Margin="0 0 5 0">
+                                    <Button.Content>
+                                        <Image Source="/Icons/Кнопка редактировать.png" Height="20"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Style="{DynamicResource ButtonDelete}" x:Name="BtnDelete" BorderThickness="0" Background="#EE0000" Width="30" Height="30" Click="BtnDelete_Click" >
+                                    <Button.Content>
+                                        <Image Source="/Icons/Кнопка удалить.png" Height="20"/>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,34 @@
+﻿<Page x:Class="ИС_ККТД.Pages.YchVedomost"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1030"
+      Title="YchVedomost">
+
+    <Grid>
+        <Grid.RowDefinitions> 
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Ведомости" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+        <!--StackPanel Info-->
+        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness=" 0 2 0 0" Height="2" Width="1050" BorderBrush="#D7D8DA" Background="Transparent"/>
+
+        <Grid Grid.Row="3" HorizontalAlignment="Center">
+            <TextBlock Text="Выберите какую ведомость вы хотите создать!"  FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 40 0 0"/>
+            <Button Style="{DynamicResource ButtonSave}" x:Name="BtnDisciplin" Content="По дисциплинам" Width="260" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 120" Click="BtnDisciplin_Click"/>
+            <Button Style="{DynamicResource ButtonSave}" x:Name="BtnSvodnaya" Content="Сводный лист" Width="260" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 10 0 10" Click="BtnSvodnaya_Click"/>
+            <Button Style="{DynamicResource ButtonSave}" x:Name="BtnStependiya" Content="На степендию" Width="260" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 120 0 0" Click="BtnStependiya_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

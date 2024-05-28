@@ -1,0 +1,84 @@
+﻿<Page x:Class="ИС_ККТД.Pages.AddBall"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" d:DesignHeight="700" d:DesignWidth="1050" Title="AddBall" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Добавление оценки студенту" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--Button Save-->
+        <Button x:Name="BtnSave" Style="{DynamicResource ButtonSave}" FontSize="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" Grid.Row="0" Grid.Column="1" Content="Сохранить" Click="BtnSaveClick"/>
+
+        <!--Border-->
+        <Border Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" BorderThickness=" 0 2 0 0" Height="2" BorderBrush="#D7D8DA" Background="Transparent"/>
+
+        <!--Grid-->
+        <Grid Grid.Row="3" Margin="0 20 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="793*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--TextBlock-->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Выберите группу" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Номер данных" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Выбор студента" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Выбор дисциплины" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Дата" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Время" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Оценка" FontSize="25" FontWeight="SemiBold" Foreground="#707070" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+            <!--TextBox/ComboBox/Button-->
+            <ComboBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource ComboBox}" x:Name="CmbGroup" SelectedItem="{Binding Группы}" DisplayMemberPath="код_группы" SelectedValuePath="Id_группы" Height="40" Width="250"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource TextBox}" x:Name="TxtId" Text="{Binding Id_успеваемости}" Height="40" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="2" Grid.Column="1" Height="40" Width="250" Style="{DynamicResource ComboBox}" x:Name="CmbStudent" SelectedItem="{Binding Студенты}" SelectedValuePath="Id_студента" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Фамилия}" FontSize="20" FontWeight="SemiBold" Margin="3 0"/>
+                            <TextBlock Text="{Binding Имя}"  FontSize="20" FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Grid.Row="3" Grid.Column="1" Height="40" Width="250" Style="{DynamicResource ComboBox}" x:Name="CmbDisciplins" SelectedItem="{Binding Дисциплины}" SelectedValuePath="Id_дисциплины" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Код_дисциплины}" Margin="3 0" FontSize="20" FontWeight="SemiBold"/>
+                            <TextBlock Text="{Binding Название}" FontSize="20" FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <DatePicker Grid.Row="4" Grid.Column="1" Style="{DynamicResource DatePicker}" x:Name="DpDate" SelectedDate="{Binding Дата,  StringFormat={}{0:yyyy-mm-dd HH:mm}, ValidatesOnExceptions=true, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="250" Margin="0,5,0,5"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Style="{DynamicResource TextBox}" x:Name="DpTime" Text="{Binding Время}" Height="40" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Style="{DynamicResource TextBox}" x:Name="TxtBall" Text="{Binding Оценка}" Height="40" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,73 @@
+﻿<Window x:Class="ИС_ККТД.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ИС_ККТД"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="768" MinWidth="1366"  Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    <Border Background="#4C393939" CornerRadius="30"  MinHeight="768" MinWidth="1366" MaxHeight="1060" MaxWidth="1900">
+        <Grid Height="702" Width="1200" MouseDown="Grid_MouseDown">
+            <Border BorderThickness="3" Background="#F1F2F7" CornerRadius="30">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--Image/Logo-->
+                    <Grid>
+                        <Image Source="/Resources/photo.png" Width="700" Height="698" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"/>
+                        <Image Source="/Resources/Лого-ККТД.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" Grid.Row="0" Grid.Column="0" Margin="20"/>
+                        <TextBlock Text="Добро пожаловать!" FontSize="40" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 18"/>
+                    </Grid>
+                    
+                    <!--Button Close-->
+                    <Border Grid.Row="0" Grid.Column="1" Height="40" Width="70" CornerRadius="0 28 0 28" HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#5A06EC" Offset="0.1"/>
+                                    <GradientStop Color="#2D0376" Offset="0.9"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Button x:Name="BtnClose" Width="30" Height="30" HorizontalAlignment="Center"  Background="Transparent" Grid.Column="3" Click="BtnClose_Click" Style="{DynamicResource Button}" >
+                            <Image VerticalAlignment="Center" Source="/Icons/Закрыть.png" HorizontalAlignment="Right"  Width="15" Height="15"/>
+                        </Button>
+                    </Border>
+                    
+                    <!--Authorization-->
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="350" Height="448" Grid.Column="1">
+
+                        <!--TextBlock/TextBox Login-->
+                        <TextBlock Text="Авторизация" FontSize="40" FontWeight="SemiBold" Margin="0 0 0 50"/>
+                        <TextBlock Text="Логин" FontSize="22" Foreground="Black" Margin="13 0 0 5"/>
+                        <TextBox CaretBrush="#5A06EC" KeyDown="TxtLogin_KeyDown" Style="{DynamicResource Login}" x:Name="TxtLogin" Width="350" Height="45" Margin="0 0 0 20"/>
+
+                        <!--TextBlock/TextBox Password-->
+                        <TextBlock Text="Пароль" FontSize="22" Foreground="Black" Margin="13 0 0 5"/>
+                        <Grid>
+                            <PasswordBox CaretBrush="#5A06EC" KeyDown="TxtPassword_KeyDown" Style="{DynamicResource Password}" x:Name="PsPassword" Width="350" Height="45"/>
+                            <TextBox KeyDown="TxtPassword_KeyDown" Visibility="Collapsed" Style="{DynamicResource Login}" x:Name="TxtPassword" Width="350" Height="45" TextChanged="TxtPassword_TextChanged"/>
+                        </Grid>
+                        
+                        <!--CheckBox-->
+                        <CheckBox Style="{DynamicResource CheckBox}" Content="Показать пароль" x:Name="ChPassword" FontSize="20" Margin="0 12 0 0" Click="ChPassword_Click"/>
+                       
+                        <!--Button Password/Open-->
+                        <Button Style="{DynamicResource ButtonText}" x:Name="BtnEditPassord" Content="Забыли пароль?" HorizontalAlignment="Center" Click="BtnEditPassord_Click"  Margin="10 2 10 58"/>
+                        <Button Style="{DynamicResource Button1}" BorderBrush="Transparent" x:Name="BtnOpen" Height="40" Width="350" Content="Войти" Click="BtnOpen_Click">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="1,0" >
+                                    <GradientStop Color="#5A06EC" Offset="0.2"/>
+                                    <GradientStop Color="#2D0376" Offset="0.8"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

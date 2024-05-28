@@ -1,0 +1,102 @@
+﻿<Page x:Class="ИС_ККТД.Pages.DeptorsUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DeptorsUser">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Направление пользователя" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Button Grid.Column="1" x:Name="pdfsave" Margin="0 0 20 0" Style="{DynamicResource ButtonSave}" FontSize="22" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="40" Grid.Row="0" Content="Сохранить" Click="pdfsave_Click"/>
+        <!--StackPanel Info-->
+        <Border Grid.Row="2" VerticalAlignment="Bottom" BorderThickness=" 0 2 0 0" Height="2" Width="1050" BorderBrush="#D7D8DA" Background="Transparent"/>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46"/>
+                <RowDefinition Height="46"/>
+                <RowDefinition Height="46"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Text="Выберите группу обучающегося: " FontSize="20" Foreground="#707070" Margin="0 0 51 0"/>
+                <ComboBox Style="{DynamicResource ComboBox}" x:Name="CmbGroup" FontSize="20" Foreground="#707070" Width="200" SelectionChanged="CmbGroup_SelectionChanged" DisplayMemberPath="код_группы" SelectedValuePath="{Binding Группы}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="Выберите студента из списка группы: "  FontSize="20" Foreground="#707070" Margin="0 0 10 0"/>
+                <ComboBox Style="{DynamicResource ComboBox}" x:Name="CmbStudentInGroup" Width="200" SelectionChanged="CmbStudentInGroup_SelectionChanged" SelectedValuePath="{Binding Студенты}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" BindingGroup="{Binding Студенты}">
+                                <TextBlock Text="{Binding Фамилия}" FontSize="20" Foreground="#707070" Margin="0 0 5 0"/>
+                                <TextBlock Text="{Binding Имя}" FontSize="20" Foreground="#707070"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox> 
+            </StackPanel>
+            <ListBox x:Name="PdfDopusc" SelectionChanged="PdfDopusc_SelectionChanged"  Grid.Row="2" Grid.RowSpan="4" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="950" Margin="40 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Направление" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
+                            <TextBlock Text="НА СДАЧУ (ПЕРЕСДАЧУ) ЭКЗАМЕНА, ЗАЧЕТА" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"  HorizontalAlignment="Center"/>
+                            <TextBlock Text="По дисциплине: " Grid.Row="2" Grid.Column="0" FontSize="20" />
+                            <TextBlock Text="{Binding Учебный_план.Дисциплины.Название}" Grid.Row="2" Grid.Column="1" FontSize="20" />
+                            <TextBlock Text="Выдано студенту: " Grid.Row="3" Grid.Column="0" FontSize="20" />
+                            <TextBlock Text="{Binding Студенты.Фамилия}" Grid.Row="3" Grid.Column="1" FontSize="20" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Студенты.Имя}" Grid.Row="3" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" />
+                            <TextBlock Text="Группа: " Grid.Row="4" Grid.Column="0" FontSize="20" />
+                            <TextBlock Text="{Binding Студенты.Группы.код_группы}" Grid.Row="4" Grid.Column="1" FontSize="20" />
+                            <TextBlock Text="Преподаватель: " Grid.Row="5" Grid.Column="0" FontSize="20" />
+                            <TextBlock Text="{Binding Учебный_план.ДисцпилинаПреподователь.Сотрудники.Фамилия}" Grid.Row="5" Grid.Column="1" FontSize="20" />
+                            <TextBlock Text="Сдано на оценку: " Grid.Row="6" Grid.Column="0" FontSize="20" />
+                            <Border BorderThickness="0 0 0 1" BorderBrush="#707070" Grid.Row="6" Grid.Column="1"/>
+                            <TextBlock Text="Подпись преподавателя: " Grid.Row="7" Grid.Column="0" FontSize="20" />
+                            <Border BorderThickness="0 0 0 1" BorderBrush="#707070" Grid.Row="7" Grid.Column="1"/>
+                            <TextBlock Text="Дата экзамена (зачета): " Grid.Row="8" Grid.Column="0" FontSize="20" />
+                            <Border BorderThickness="0 0 0 1" BorderBrush="#707070" Grid.Row="8" Grid.Column="1"/>
+                            <TextBlock Text="Зав.отделением: " Grid.Row="9" Grid.Column="0" FontSize="20" />
+                            <TextBlock Text="{Binding Manager.CurrentUser.Сотрудник.Фамилия}" Grid.Row="9" Grid.Column="1" FontSize="20" />
+                            <Border BorderThickness="0 0 0 1" BorderBrush="#707070" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Выбрать" Click="MenuItem_Click"></MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox> 
+        </Grid>
+
+    </Grid>
+</Page>

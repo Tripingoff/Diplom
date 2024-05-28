@@ -1,0 +1,99 @@
+﻿<Page x:Class="ИС_ККТД.Pages.Results"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ИС_ККТД.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1060" Title="Итоги" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TextBlock-->
+        <TextBlock Text="Итоговые оценки" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--TextBox Search-->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBox CaretBrush="#5A06EC" x:Name="TxtKod" Width="280" Height="40" Style="{DynamicResource Search}"/>
+            <TextBlock IsHitTestVisible="False" FontSize="20" Text="Поиск" FontWeight="SemiBold" Foreground="#D7D8DA" VerticalAlignment="Center" Margin="-270 0 40 0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=TxtKod}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <!--Button Search-->
+            <Button x:Name="search" Click="search_Click"  Style="{DynamicResource ButtonSearch}" Width="32" Height="32" Margin="-50 0 0 0">
+                <Image VerticalAlignment="Center" HorizontalAlignment="Right"  Width="25" Height="25">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Icons/Поиск1.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=search}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Поиск.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type Button}}}" Value="True">
+                                    <Setter Property="Source" Value="/Icons/Поиск.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+        </StackPanel>
+
+        <!--StackPanel Info-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Border BorderThickness=" 0 2 0 0" Height="40" Width="1060" BorderBrush="#D7D8DA" Background="Transparent">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Дисциплина" Margin="35 0 0 0" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="20" Foreground="#AAAAAA"/>
+                    <TextBlock Grid.Column="1" Text="Средний балл" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="20" Foreground="#AAAAAA"/>
+                    <TextBlock Grid.Column="2" Text="Итог" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#AAAAAA" FontSize="20"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <ListBox x:Name="ListBoxDisciplins" Background="Transparent" Grid.Row="3" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="IsHitTestVisible" Value="False"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="45" Width="1050" HorizontalAlignment="Center" Margin="0 0 0 5" BorderBrush="White" Background="White" BorderThickness="1" CornerRadius="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="697"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Учебный_план.Дисциплины.Название}" Margin="20,8,0,8" FontFamily="Segoe UI" FontWeight="Regular" Grid.Column="0" Foreground="Black" FontSize="20" />
+                                <TextBlock Text="{Binding Общий_балл}" Grid.Column="1" Foreground="Black" FontSize="20" FontWeight="Regular" Margin="0,8,0,8" />
+                                <TextBlock Text="{Binding Оценка}" Grid.Column="2" Foreground="Black" FontSize="20" FontWeight="Regular" Margin="0,8,0,8" />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
